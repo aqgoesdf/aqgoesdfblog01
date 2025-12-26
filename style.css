@@ -1,0 +1,72 @@
+/*Rresert*/
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px;
+}
+
+
+header nav a:hover{
+	color: brown;
+}
+
+
+/*Cabeçalho*/
+.logo{
+	font-size: 45px;
+	color: brown;
+}
+
+
+/*Nav-bar*/
+nav ul{
+	display: flex;
+	gap: 20px;
+	list-style: none;
+}
+
+
+/*Corpo do site*/
+.corpo-site{
+	display: flex;
+	width: 100%;
+	height: 450px;
+	background-color: aquamarine;
+}
+article{
+	display: flex;
+	gap: 20px;
+}
+
+footer{
+	display: flex;
+	gap: 25px;
+	width: 100%;
+
+}
+footer span{
+	color: cadetblue;
+}
+footer span a:hover{
+	color: brown;
+}
+
+
+
+@media screen and (max-height: 600px){
+	header{
+	display: flex;
+	flex-direction: column;
+	}
+	.corpo-site{
+		background-color: brown;
+		color: aliceblue;
+	}
+}
