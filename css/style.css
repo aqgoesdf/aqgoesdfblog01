@@ -16,9 +16,13 @@ header{
 	position: fixed;
 	top: 0;
 	z-index: 1000;
-	background-color: #6366F1;
+	background-color: transparent;
+	transition: background-color 0.3s ease;
 	color: #0F172A;
 	padding: 15px;
+}
+header.scrolled{
+	background-color: #6366F1;
 }
 header a{
 	color: #0F172A;
