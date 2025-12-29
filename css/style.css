@@ -4,26 +4,13 @@
 	padding: 0;
 	box-sizing: border-box;
 }
-
+/*Caeçalho site*/
 header{
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-between; /*Eixo Horizontal*/
 	align-items: center;
 	padding: 15px;
 }
-
-
-header nav a:hover{
-	color: brown;
-}
-
-
-/*Cabeçalho*/
-.logo{
-	font-size: 45px;
-	color: brown;
-}
-
 
 /*Nav-bar*/
 nav ul{
@@ -34,21 +21,17 @@ nav ul{
 
 
 /*Corpo do site*/
-article{
+.conteudo{
 	display: flex;
 	gap: 20px;
 	padding: 20px;
 }
-article h2{
+article{
 	flex: 3;
-	color: black;
 }
 
-
 aside{
-flex: 1;
-background-color: #eee;
-padding: 10px;
+	flex: 1;
 }
 footer{
 	display: flex;
@@ -65,15 +48,14 @@ footer span a:hover{
 	color: brown;
 }
 
+@media screen and (max-width: 600px)
 
-
-@media screen and (max-height: 600px){
+{
 	header{
-	display: flex;
-	flex-direction: column;
+		flex-direction: column;
 	}
-	.corpo-site{
-		background-color: brown;
-		color: aliceblue;
+	.conteudo{
+		flex-direction: column;
 	}
 }
+
