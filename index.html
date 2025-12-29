@@ -9,40 +9,58 @@
 <body>
 
 <header><!--Cabeçalho-->
-	<h1 class="logo"> <a href=""></a>AqGoEs</h1>
+	<h1 class="logo">
+		 <a href="index.html">AqGoEs</a>
+	</h1>
 	<nav><!--nav-bar-->
 		<ul>
-			<li class="itens"><a href="#home">Home</a></li>
-			<li class="itens"><a href="#banner">Banner</a></li>
-			<li class="itens"><a href="#contato">Contato</a></li>
+			<li><a href="#home">Home</a></li>
+			<li><a href="#banner">Banner</a></li>
+			<li><a href="#contato">Contato</a></li>
 		</ul>
 	</nav>
 </header>
 
 <main>
-	<div class="container-banner">
-		<section id="banner" class="banner">
-			<h2>AqGoes</h2>
-			<p>Desenvolvimento Web</p>
-		</section>
-	</div>
+	<section id="banner" class="banner">
+		<h2>AqGoes</h2>
+		<p>Desenvolvimento Web</p>
+	</section>
 
-	<main>
-		<div class="container-conteudo">
-			<article>
-				<h3>Principais Artigos </h3>
+	<div class="container-conteudo">
+		<div class="cards">
+			<article class="card"><!--Card HTML CSS-->
+				<h4>HTML & CSS</h4>
+				<p>Estrutura e estilização de páginas web modernas.</p>
+				<a href="#">Leia Mais..</a>
 			</article>
 
-			<aside>
-				<h3>Sibebar</h3>
-			</aside>
+			<article class="card"><!--Card JS-->
+				<h4>JavaSCript</h4>
+				<p>Interatividade, eventos e lógica no front-end.</p>
+				<a href="#">Leia Mais...</a>
+			</article>
+
+
+			<article class="card"><!--Card Python-->
+				<h3>Python</h3>
+				<p>Automação, backend e desenvolvimento web.</p>
+				<a href="#">Leia Mais...</a>
+			</article>
 		</div>
 
+		<aside>
+			<h3>Sibebar</h3>
+		</aside>
+	</div>
+
 	</main>
-</main>
 <footer>
-	Desenvolvido por:
+	<p>
+			Desenvolvido por:
 	&copy;<span> <a href="index.html">AqGoES</a></span> 
+	</p>
+
 </footer>
 </body>
 </html>
