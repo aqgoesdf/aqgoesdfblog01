@@ -7,3 +7,11 @@ form.addEventListener("submit", function(event){
     form.releasePointerCapture();
 });
 
+//Menu responsivo
+const menuToggle = document.getElementById("menuToggle");
+const menu = document.getElementById("menu");
+
+
+menuToggle.addEventListener("click", () =>{
+    menu.ClassList.toggle("active");
+});
