@@ -1,120 +1,93 @@
-/*Rresert*/
+/*AqGoEs | Dev */
+
+/*Resert*/
 *{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-
-/*Caeçalho site*/
-header{
-	height: 80px;
-	width: 100%;
-	display: flex;
-	justify-content: space-between; /*Eixo Horizontal*/
-	align-items: center;
-	position: fixed;
-	top: 0;
-	z-index: 1000;
-	background-color: transparent;
-	transition: background-color 0.3s ease;
-	color: #0F172A;
-	padding: 15px;
-}
-header.scrolled{
-	background-color: #6366F1;
-}
-header a{
-	color: #0F172A;
-	text-decoration: none;
-	font-weight: bold;
-}
-header ul{
-	display: flex;
-	gap: 30px;
-	list-style: none;
-}
-main{
-	padding-top: 80px;
-}
-.banner{
-	width: 100%;
-	height: 300px;
-	text-align: center;
-	padding-top: 50px;
+/*Estilos Gerais*/
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #333;
 }
 
-.banner h2{
-	font-size: 32px;
-	margin: 10px;
+.navbar{
+    display: flex;
+    justify-content: space-between; /*Elemntos H logo do lado esquerdo é os itens do meni u vão ficar na dirreita */
+    align-items: center;
 }
-.banner p {
-	font-size: 32px;
-	font-weight: 700;
+.menu{
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
 }
-.container-conteudo{
-	display: flex;
-	gap: 20px;
-	padding: 20px;
+.menu a{
+    margin: 5px;
+    color: #000;
+    text-decoration: none;
 }
-article{
-	flex: 3;
+
+.hero{
+    height: 60vh;
+    background: linear-gradient(135deg, #0077ff, #00c6ff);
+    color: #fff;
+
+    display: flex;
+    flex-direction: column; /*Ao colcoar o flex direction colunas todos os elemntos html h2. p button vão fica um embaixo do outro Direção como colunas, por padrão os flex são row linhas*/
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
+.hero button{
+
+    margin-top: 1rem;
+    padding: 0.7rem 5rem;
+    border: none;
+    border-radius: 15px ;
+    background: #ffff;
+    color: #0077ff;
+    cursor: pointer;
+}
+.hero button:hover{
+    color: #fff;
+    background-color: #3333338a;
+}
+
+/*Seção dos cads*/
+section{
+    padding: 3rem 2rem;
+}
+/*Cards dos serviços*/
 .cards{
-	display: flex;
-	gap: 20px;
-	flex-wrap: wrap;
-	margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 .card{
-	width: 260px;
-	min-height: 320px;
-	padding: 15px;
-
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-
-	border: 1px solid #ddd;
-	border-radius: 8px;
-	background-color: #fff;
+    background: #f4f4f4;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
 }
-.card h4{
-	margin-bottom: 10px;
-}
-.card p{
-	flex: 1;
-	font-size: 14px;
-}
-.card a{
-	align-self: flex-start;
-	text-decoration: none;
-	color: #6366F1;
-	font-weight: bold;
-}
-aside{
-	flex: 1;
-	background-color: #eee;
-	padding: 15px;
+form{
+    max-width: 400px;
+    margin-top: 1rem;
 }
 
+/*Todos todos os inpus que estão dentro da tab form a virgula separa os mesmo estilos dentro da tag form é textarea*/
+form input,
+form textarea{
+    width: 100%;
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+}
+
+/*Footer*/
 footer{
-	height: 80px;
-	display: flex;
-	justify-content: center;
-	background-color: #6B7280;
-}
-
-
-@media  (max-width: 700px) {
-	.container-conteudo{
-		font-size: 10px;
-	}
-	.cards{
-		justify-content: center;
-
-	}
-	.card{
-		width: 100%;
-	}
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
 }

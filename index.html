@@ -1,71 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Exercicios</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AqGoEs | Dev</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!--Cabelaho-->
+    <header>
+        <nav class="navbar"> 
+            <h1 class="logo">AqGoEs</h1>
+            <ul class="menu">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<header><!--Cabeçalho-->
-	<h1 class="logo">
-		 <a href="index.html">AqGoEs</a>
-	</h1>
-	<nav><!--nav-bar-->
-		<ul>
-			<li><a href="#home">Home</a></li>
-			<li><a href="#banner">Banner</a></li>
-			<li><a href="#contato">Contato</a></li>
-		</ul>
-	</nav>
-</header>
+    <main>
+        <!--Seção hero-->
+        <section id="sobre" class="hero">
+            <h2> Desenvolvimento Web Profissional</h2>
+            <p>Sites modernos, rápidos e responsivos</p>
+            <button>Saiba mais...</button>
+        </section>
 
-<main class="corpo-site">
-	<section id="banner" class="banner">
-		<h2>AqGoes</h2>
-		<p>Desenvolvimento Web</p>
-	</section>
+        <!--Serviços-->
+        <section id="servicos" class="servicos">    
+            <h2>Serviços</h2>
+            <!--Div principal do cards-->
+            <div class="cards">
+                <div class="card">Sites Institucionais</div>
+                <div class="card">Landing Pages</div>
+                <div class="card">Sistemas Web</div>
+            </div>
+        </section>
 
-	<section class="container-conteudo">
+        <section id="contato" class="contato">
+            <h2>Contato</h2>
 
-		<div class="conteudo-principla">
-		<h2>Artigos | Blog</h2>
-		<div class="cards">
-			<article class="card"><!--Card HTML CSS-->
-				<h4>HTML & CSS</h4>
-				<p>Estrutura e estilização de páginas web modernas.</p>
-				<a href="#">Leia Mais..</a>
-			</article>
+            <form id="formContato">
+                <input type="text" placeholder="Nome" required>
+                <input type="text" placeholder="E-mail"
+                required >
+                <textarea placeholder="Mensagem"></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
 
-			<article class="card"><!--Card JS-->
-				<h4>JavaSCript</h4>
-				<p>Interatividade, eventos e lógica no front-end.</p>
-				<a href="#">Leia Mais...</a>
-			</article>
+    <!--Footer-->
+    <footer>
+        <p>@2026 - AqGoEs | Dev</p>
+    </footer>
 
-
-			<article class="card"><!--Card Python-->
-				<h3>Python</h3>
-				<p>Automação, backend e desenvolvimento web.</p>
-				<a href="#">Leia Mais...</a>
-			</article>
-		</div>
-
-		<aside>
-			<h2>Sibebar</h2>
-			<p>Link, categorias ou widget</p>
-		</aside>
-		</div>
-	</section>
-
-	<section id="contato" class="contato">
-		<h2>Contato</h2>
-	</section>
-	</main>
-<footer>
-	<p>Desenvolvido por:
-	&copy;<span><a href="index.html">AqGoES</a></span></p>
-</footer>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
