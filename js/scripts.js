@@ -18,7 +18,7 @@ form.addEventListener("submit", function(event){
     event.preventDefault();
     
     const nome = document.getElementById("nome").value.trim();
-    const email = document.getAnimations("email").value.trim();
+    const email = document.getElementById("email").value.trim();
     const mensagem = document.getElementById("mensagem").value.trim();
 
     if (!nome || !email || !mensagem){
@@ -26,7 +26,7 @@ form.addEventListener("submit", function(event){
         return;
     }
 
-    if (!email.includ("@")) {
+    if (!email.includes("@")) {
         erro.textContent = "Digite um e-mail valido.";
         return;
     }
