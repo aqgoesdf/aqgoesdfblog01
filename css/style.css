@@ -66,16 +66,13 @@ header{
     align-items: center;
     text-align: center;
 }
-.hero:nth-child(even){
-	background: #f4f4f4;
-}
+
 .hero button{
     margin-top: 1rem;
     padding: 0.7rem 5rem;
     border: none;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
- 
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 .hero button:hover{
     background: #e6e6e6;
@@ -98,6 +95,10 @@ section{
     border-radius: 8px;
 }
 form{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
     max-width: 400px;
     margin-top: 1rem;
 }
