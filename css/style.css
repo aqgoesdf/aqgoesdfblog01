@@ -150,7 +150,9 @@ form textarea{
     padding: 0.7rem;
     margin-bottom: 1rem;
 }
-
+ form button{
+    width: 100px;
+ }
 /*Footer*/
 footer{
     background-color: #222;

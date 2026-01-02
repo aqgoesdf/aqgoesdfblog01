@@ -4,67 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AqGoEs | Dev</title>
+      <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <!--Cabelaho-->
     <header>
-        <nav class="navbar"> <!--Nav-menu -->
-            <h1 class="logo">AqGoEs</h1> <!--Logo AqGoes-->
+        <nav class="navbar fixed top-0 w-full bg-gray-900 text-white z-50"> <!--Nav-menu -->
+            <div class="max-w-6xl mx-auto flex justify-between items-center px-4 py-4">
+
+            <h1 class="logo text-xl font-bold">AqGoEs</h1> <!--Logo AqGoes-->
 
             <!--Div envolve icones mudar a cor do site menu humburgue-->
-            <div class="nav-actions">
+            <div class="nav-actions flex gap-4">
                 <!--Botão mudar cor do corpo do site-->
-                <button class="dark-toggle" id="darkToggle">🌙</button>
+                <button class="dark-toggle text-xl" id="darkToggle" >🌙</button>
                 <!--Botão menu responsivo-->
-                <button  class="menu-toggle" id="menuToggle">☰</button>
+                <button  class="menu-toggle text-2xl md:hidden" id="menuToggle">☰</button>
             </div>
 
-            <ul class="menu" id="menu">
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#contato">Contato</a></li>
+            <ul class="menu hidden md:flex gap-6" id="menu">
+                <li><a href="#sobre" class="hover:text-blue-400">Sobre</a></li>
+                <li><a href="#servicos" class="hover:text-blue-400">Serviços</a></li>
+                <li><a href="#contato" class="hover:text-blue-400">Contato</a></li>
             </ul>
+        </div>
         </nav>
     </header>
 
     <main><!--Corpo site-->
         <!--Seção hero-->
-        <section id="hero" class="hero">
-            <h2> Desenvolvimento Web Profissional</h2>
-            <p>Sites modernos, rápidos e responsivos</p>
-            <button>Saiba mais...</button>
+        <section id="hero" class="hero h-screen flex flex-col justify-center items-center text-center bg-gradient-to-r from-blue-600 to-cyan-400 text-white pt-20">
+            <h2 class="text-4xl font-bold mb-4"> Desenvolvimento Web Profissional</h2>
+            <p class="mb-6">Sites modernos, rápidos e responsivos</p>
+            <button class="bg-white text-blue-600 px-8 py-3 rounded hover:scale-105 transition">Saiba mais...</button>
         </section>
 
         <!--Serviços-->
-        <section id="servicos" class="servicos">    
-            <h2>Serviços</h2>
+        <section id="servicos" class="servicos py-16 px-6">    
+            <h2 class="text-3xl text-center font-bold mb-10">Serviços</h2>
             <!--Div principal do cards-->
-            <div class="cards">
-                <div class="card">Sites Institucionais</div>
-                <div class="card">Landing Pages</div>
-                <div class="card">Sistemas Web</div>
+            <div class="cards grid gap-6 md:grid-cols-3 max-w-6xl mx-auto">
+                <div class="card bg-gray-100 p-6 rounded shadow text-center">Sites Institucionais</div>
+                <div class="card bg-gray-100 p-6 rounded shadow text-center">Landing Pages</div>
+                <div class="card bg-gray-100 p-6 rounded shadow text-center">Sistemas Web</div>
             </div>
         </section>
 
-        <section id="contato" class="contato">
-            <h2>Contato</h2>
+        <section id="contato" class="contato py-16 px-6 bg-gray-50">
+            <h2 class="text-3xl text-center font-bold mb-6">Contato</h2>
 
-            <form id="formContato">
-                <input type="text" id="nome" placeholder="Nome" required>
-                <input type="text" id="email" placeholder="E-mail"
+            <form id="formContato" class="max-w-md mx-auto flex flex-col gap-4">
+                <input type="text" id="nome" class="p-3 border rounded" placeholder="Nome" required>
+                <input type="text" id="email" class="p-3 border rounded" placeholder="E-mail"
                 required >
-                <textarea id="mensagem" placeholder="Mensagem"></textarea>
+                <textarea id="mensagem" class="p-3 border rounded" placeholder="Mensagem"></textarea>
 
-                <p id="erro"></p><!--Paragrafo menagem de erro -->
-                <button type="submit">Enviar</button>
+                <p id="erro" class="text-red-600 text-sm"></p><!--Paragrafo menagem de erro -->
+                <button type="submit" class="bg-blue-600 text-white py-3 rounded hover:bg-blue-700 transition">Enviar</button>
             </form>
         </section>
     </main>
 
     <!--Footer-->
-    <footer>
+    <footer class="bg-gray-900 text-white text-center py-4">
         <p>@2026 - AqGoEs | Dev</p>
     </footer>
 
