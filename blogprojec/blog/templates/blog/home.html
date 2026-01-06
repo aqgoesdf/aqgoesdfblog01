@@ -4,6 +4,16 @@ Página initial
 {% endblock %}
 
 {% block content %}
-    <h2>Bem-vindo ao Blog</h2>
-    <p>Esta página já herda o layout base.</p>
-    {% endblock %}
+
+    <h2>Últimos Posts</h2>
+    
+    {% for post in posts %}
+    <article>
+        <h3>{{ post.titulo }}</h3>
+        <p>{{ post.conteudo }}</p>
+        <small>Publicado em: {{ post.data_criacao }}</small>
+    </article>
+ {% empty %}
+    <p>Nenhum post encontrado.</p>
+ {% endfor %}
+{% endblock %}
