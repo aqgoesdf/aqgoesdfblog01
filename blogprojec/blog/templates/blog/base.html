@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Meu Blog{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>Meu Blog</h1>
+        <p>Aprendendo Django passo a passo</p>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <hr>
+        <p>@ 2026 - Meu Blog</p>
+    </footer>
+</body>
+</html>
