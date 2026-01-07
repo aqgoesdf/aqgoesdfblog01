@@ -10,11 +10,10 @@ Página initial
     {% for post in posts %}
     <article>
      <h3>
-        <a href="{% url 'post_detalhe' post.id %}">
-            {{ post.titulo }}
-        </a>
+        {{ post.titulo }}
+        <a href="{% url 'post_detalhe' post.id %}">Leia mais...</a>
     </h3>
-        <p>{{ post.conteudo }}</p>
+        <p>{{ post.resumo }}</p>
         <small>Publicado em {{ post.data_criacao }}</small>
     </article>
  {% empty %}
