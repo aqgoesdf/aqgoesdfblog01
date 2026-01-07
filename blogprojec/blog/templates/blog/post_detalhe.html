@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+{% block title %}
+{{ post.titulo }}
+{% endblock %}
+
+{% block content %}
+
+<article>
+    <h2>{{ post.titulo }}</h2>
+    <small>Publicado em {{ post.data_criacao }}</small>
+
+    <p>{{ post.conteudo }}</p>
+    <p>
+        <a href="{% url 'home' %}">← Voltar para a página inicial</a>
+    </p>
+</article>
+{% endblock %}

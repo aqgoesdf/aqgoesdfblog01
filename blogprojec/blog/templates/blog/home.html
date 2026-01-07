@@ -9,11 +9,16 @@ Página initial
     
     {% for post in posts %}
     <article>
-        <h3>{{ post.titulo }}</h3>
+     <h3>
+        <a href="{% url 'post_detalhe' post.id %}">
+            {{ post.titulo }}
+        </a>
+    </h3>
         <p>{{ post.conteudo }}</p>
-        <small>Publicado em: {{ post.data_criacao }}</small>
+        <small>Publicado em {{ post.data_criacao }}</small>
     </article>
  {% empty %}
     <p>Nenhum post encontrado.</p>
  {% endfor %}
+
 {% endblock %}
