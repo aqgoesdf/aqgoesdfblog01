@@ -7,5 +7,5 @@ class Post(models.Model):
     conteudo = models.TextField()
     data_criacao = models.DateTimeField(auto_now_add=True)
 
-    def __STR__(self):
+    def __str__(self):
         return self.titulo

@@ -5,7 +5,7 @@
 
 <article class="detalhe_post">
     <h2>{{ post.titulo }}</h2>
-    <small>Publicado em {{ post.data_criacao }}</small>
+    <small>Publicado em {{ post.data_criacao|date:"d/m/Y H:i" }}</small>
 
     <p>{{ post.conteudo }}</p>
 </article>
