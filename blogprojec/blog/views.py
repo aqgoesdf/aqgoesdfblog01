@@ -4,7 +4,7 @@ from .models import Post
 # Chamada para titulos conteúdo meta descrição.
 
 def home(request):
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by('-data_criacao')
     return render(request, 'blog/home.html', {'posts': posts})
 
 

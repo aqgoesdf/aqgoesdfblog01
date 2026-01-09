@@ -1,23 +1,26 @@
 {% extends 'blog/base.html' %}
-{% block title %}
-Página initial
-{% endblock %}
+
+{% block title %}Home{% endblock %}
 
 {% block content %}
 
     <h2>Últimos Posts</h2>
     
     {% for post in posts %}
-    <article>
+    <article class="post">
      <h3>
-        {{ post.titulo }}
-        <a href="{% url 'post_detalhe' post.id %}">Leia mais...</a>
+       
+        <a href="{% url 'post_detalhe' post.id %}">
+             {{ post.titulo }}
+        </a>
     </h3>
+
         <p>{{ post.resumo }}</p>
-        <small>Publicado em {{ post.data_criacao }}</small>
+
+        <a class="leia_mais" href="{% url 'post_detalhe' post.id %}">Leias mais..</a>
     </article>
  {% empty %}
-    <p>Nenhum post encontrado.</p>
+ <p>Nenhum post encontrado.</p>
  {% endfor %}
 
 {% endblock %}
