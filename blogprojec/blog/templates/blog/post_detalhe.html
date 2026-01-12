@@ -7,8 +7,12 @@
 
 <article class="post-detalhe-container">
     <div class="post-detalhe-card">
-        <img src="{% static 'blog/img/image.png' %}" alt="{{ post.titulo }}">
 
+        {% if post.imagem %}
+            <img src="{{ post.imagem.url }}" alt="{{ post.titulo}}">
+        {% else %}
+              <img src="{% static 'blog/img/image.png' %}" alt="{{ post.titulo }}">
+        {% endif %}
         <h2>{{ post.titulo }}</h2>
         <small>
             Publicado em {{ post.data_criacao|date:"d/m/y H:I" }}

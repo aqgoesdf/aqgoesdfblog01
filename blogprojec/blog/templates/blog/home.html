@@ -6,8 +6,14 @@
 <div class="cards-container"><!--Cards container--> 
     {% for post in posts %}
     <div class="card">
+
         <div class="box-img"><!--Imagem é totulo do posts-->
-            <img src="{% static 'blog/img/image.png' %}" alt="{{ post.titulo  }}">
+
+            {% if post.iamgem %}
+                <img src="{{ post.imagem.url }}" alt="{{ post.titulo }}">
+            {% else %}
+              <img src="{% static 'blog/img/image.png' %}" alt="{{ post.titulo  }}">
+            {% endif %}
         </div>  
         
         <div class="content"><!--Conteudo -->
@@ -16,7 +22,7 @@
                 {{ post.resumo }}
             </p>
 
-            <a href="{% url 'post_detalhe' post.id %}" class="read-more">Leia mais</a>
+            <a href="{% url 'post_detalhe' post.slug %}" class="read-more">Leia mais</a>
         </div>
     </div>
    

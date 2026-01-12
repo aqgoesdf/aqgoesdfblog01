@@ -9,6 +9,6 @@ def home(request):
 
 
 # Chamada para os detalhes dos posts
-def post_detalhe(request, post_id):
-    post = get_object_or_404(Post, id=post_id)
+def post_detalhe(request, slug):
+    post = get_object_or_404(Post, slug=slug)
     return render(request, 'blog/post_detalhe.html', {'post': post})

@@ -1,5 +1,4 @@
 from django.contrib import admin
-
 # Register your models here.
 from .models import Post
 
@@ -7,4 +6,8 @@ from .models import Post
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     list_display = ('titulo', 'data_criacao')
+    list_filter = ('data_criacao',)
+    search_fields = ('titulo', 'conteudo')
+    prepopulated_fields = {'slug': ('titulo',)}
+
 
