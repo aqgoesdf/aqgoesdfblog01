@@ -1,14 +1,21 @@
 {% extends 'blog/base.html' %}
+{% load static %}
+
 {% block title %}{{ post.titulo }}{% endblock %}
 
 {% block content %}
 
-<article class="detalhe_post">
-    <h2>{{ post.titulo }}</h2>
-    <small>Publicado em {{ post.data_criacao|date:"d/m/Y H:i" }}</small>
+<article class="post-detalhe-container">
+    <div class="post-detalhe-card">
+        <img src="{% static 'blog/img/image.png' %}" alt="{{ post.titulo }}">
 
-    <p>{{ post.conteudo }}</p>
+        <h2>{{ post.titulo }}</h2>
+        <small>
+            Publicado em {{ post.data_criacao|date:"d/m/y H:I" }}
+        </small>
+
+        <p>{{ post.conteudo }}</p>
+    </div>
 </article>
 <a href="{% url 'home' %}">← Voltar para a página inicial</a>
-
 {% endblock %}

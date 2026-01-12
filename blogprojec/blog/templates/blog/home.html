@@ -1,26 +1,27 @@
 {% extends 'blog/base.html' %}
-
+{% load static %}
 {% block title %}Home{% endblock %}
 
 {% block content %}
-
-    <h2>Últimos Posts</h2>
-    
+<div class="cards-container"><!--Cards container--> 
     {% for post in posts %}
-    <article class="post">
-     <h3>
-       
-        <a href="{% url 'post_detalhe' post.id %}">
-             {{ post.titulo }}
-        </a>
-    </h3>
+    <div class="card">
+        <div class="box-img"><!--Imagem é totulo do posts-->
+            <img src="{% static 'blog/img/image.png' %}" alt="{{ post.titulo  }}">
+        </div>  
+        
+        <div class="content"><!--Conteudo -->
+            <h2>{{ post.titulo }}</h2>
+            <p>
+                {{ post.resumo }}
+            </p>
 
-        <p>{{ post.resumo }}</p>
-
-        <a class="leia_mais" href="{% url 'post_detalhe' post.id %}">Leias mais..</a>
-    </article>
+            <a href="{% url 'post_detalhe' post.id %}" class="read-more">Leia mais</a>
+        </div>
+    </div>
+   
  {% empty %}
- <p>Nenhum post encontrado.</p>
+    <p>Nenhum post encontrado.</p>
  {% endfor %}
-
+ </div><!--Finalizadno container cards-->
 {% endblock %}
