@@ -3,55 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevNews - Seu Blog de Desenvolvimento Web</title>
     <link rel="stylesheet" href="css/style.css">
-    <title>Meu Blog</title>
 </head>
 <body>
-    <!--Cabeçalho-->
-    <header class="header">
-        <h1>Meu Blog</h1>
-        <p>Aprendendo Django na prática</p>
+
+    <header class="navbar">
+        <div class="container navbar-content">
+            <div class="logo">Dev<span class="highlight">News</span></div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#html-css">HTML/CSS</a></li>
+                    <li><a href="#python">Python</a></li>
+                    <li><a href="#webdev">Web Dev</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <!--Conteúdo principal-->
-    <main class="container">
+    <main id="home">
+        <section class="carousel-container">
+            <div class="carousel-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1470');">
+                <div class="carousel-caption container">
+                    <span class="category-tag tag-web">Destaque</span>
+                    <h1>O Futuro do Front-end em 2026</h1>
+                    <p>WebAssembly, IA Generativa na codificação e o fim dos frameworks pesados? Entenda as tendências.</p>
+                    <a href="#" class="btn-main">Ler Notícia</a>
+                </div>
+            </div>
 
-        <!--Area dos post-->
-        <section class="posts">
+            <div class="carousel-slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555952494-efd681c7e3f9?q=80&w=1470');">
+                <div class="carousel-caption container">
+                    <span class="category-tag tag-python">Backend</span>
+                    <h1>Python Dominando APIs com FastAPI</h1>
+                    <p>Por que grandes empresas estão trocando frameworks tradicionais pela velocidade do FastAPI.</p>
+                    <a href="#" class="btn-main">Ler Notícia</a>
+                </div>
+            </div>
 
-            <article class="post">
-                <h2>Titulo do Post</h2>
-                <p class="meta">Publicado em 01/01/2026</p>
-                <p>Este é um resumo do post. Aqui vai uma breve descrição do conteúdo.</p>
-                <a href="#">Leia mais...</a>
-            </article>
+            <div class="carousel-slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?q=80&w=1470');">
+                <div class="carousel-caption container">
+                    <span class="category-tag tag-html">Design</span>
+                    <h1>Revolução do CSS com Container Queries</h1>
+                    <p>Diga adeus à dependência exclusiva de Media Queries. O design responsivo mudou para sempre.</p>
+                    <a href="#" class="btn-main">Ler Notícia</a>
+                </div>
+            </div>
 
-            <article class="post">
-                <h2>Outro Post</h2>
-                <p class="meta">Publicado em 02/01/2026</p>
-                <p>Outro resumo de post para testar o layout do blog.</p>
-                <a href="#">Leia mais...</a>
-            </article>
-
+            <button id="prevBtn" class="carousel-control">❮</button>
+            <button id="nextBtn" class="carousel-control">❯</button>
         </section>
 
+        <section class="news-section container">
+            <div class="section-header">
+                <h2>Últimas Atualizações</h2>
+                <p>Mantenha-se atualizado com as tecnologias mais quentes do mercado.</p>
+            </div>
+            
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?q=80&w=600" alt="Código CSS moderno">
+                        <span class="category-tag tag-html card-tag">HTML & CSS</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Guia Definitivo de CSS Grid 2024</h3>
+                        <p>Domine layouts complexos com facilidade utilizando as novas propriedades do CSS Grid.</p>
+                        <div class="card-footer">
+                            <span class="author">Por Ana Silva</span>
+                            <a href="#" class="read-more">Ler mais →</a>
+                        </div>
+                    </div>
+                </article>
 
-        <aside class="sidebar">
-            <h3>Categoria</h3>
-            <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>Python</li>
-                <li>Django</li>
-            </ul>
-        </aside>
+                <article class="news-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600" alt="Gráficos de dados com Python">
+                        <span class="category-tag tag-python card-tag">Python</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Análise de Dados Web com Python e Pandas</h3>
+                        <p>Aprenda a extrair informações valiosas de sites e APIs usando a biblioteca Pandas.</p>
+                        <div class="card-footer">
+                            <span class="author">Por Carlos Gomes</span>
+                            <a href="#" class="read-more">Ler mais →</a>
+                        </div>
+                    </div>
+                </article>
 
+                <article class="news-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=600" alt="Frameworks Javascript">
+                        <span class="category-tag tag-web card-tag">Web Dev</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>React vs Next.js: Qual escolher?</h3>
+                        <p>Entenda as diferenças arquiteturais e quando usar cada um no seu próximo projeto.</p>
+                        <div class="card-footer">
+                            <span class="author">Por Bruno Costa</span>
+                            <a href="#" class="read-more">Ler mais →</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
     </main>
 
-    <!--Rodapé-->
-    <footer class="footer">
-        <p>@ 2026 - Meu Blog</p>
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2024 DevNews. Todos os direitos reservados.</p>
+        </div>
     </footer>
+
+    <script src="js/scripts.js"></script>
 </body>
 </html>
