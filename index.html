@@ -1,147 +1,300 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevNews - Blog de Tecnologia</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechPulse – Notícias de Tecnologia</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="container navbar-content">
-            <div class="logo">Aq<span class="highlight">Goes</span></div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                </ul>
-            </nav>
+  <!-- ========== HEADER / NAV ========== -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">Tech<span>Pulse</span></a>
+
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="index.html" class="nav__link active">Home</a></li>
+        <li><a href="artigos.html" class="nav__link">Artigos</a></li>
+        <li><a href="sobre.html" class="nav__link">Sobre</a></li>
+        <li><a href="contato.html" class="nav__link">Contato</a></li>
+      </ul>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ========== SEÇÃO 1: HERO ========== -->
+    <!--
+      CONCEITO: A seção hero é o "cartão de visitas" do site.
+      Usamos um gradiente animado no fundo e um layout assimétrico
+      para criar impacto visual imediato.
+    -->
+    <section class="hero" id="hero">
+      <div class="hero__bg"></div>
+      <div class="container hero__content">
+        <div class="hero__text">
+          <span class="hero__tag">🚀 Tecnologia em tempo real</span>
+          <h1 class="hero__title">
+            O futuro da<br />
+            <em>tecnologia</em><br />
+            começa aqui.
+          </h1>
+          <p class="hero__desc">
+            HTML, CSS, JavaScript e Python — conteúdo profundo
+            para devs que querem ir além do básico.
+          </p>
+          <div class="hero__actions">
+            <a href="artigos.html" class="btn btn--primary">Ver Artigos</a>
+            <a href="sobre.html" class="btn btn--ghost">Sobre o projeto</a>
+          </div>
         </div>
-    </header>
 
-    <main id="home">
-        <section class="carousel-container">
-            <div class="carousel-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1470');">
-                <div class="carousel-caption container">
-                    <span class="category-tag tag-web">Destaque</span>
-                    <h1>O Futuro do Front-end em 2026</h1>
-                    <p>WebAssembly e IA Generativa: Entenda as tendências que estão moldando a web moderna.</p>
-                    <a href="#" class="btn-main">Ler Notícia</a>
-                </div>
-            </div>
-
-            <div class="carousel-slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555952494-efd681c7e3f9?q=80&w=1470');">
-                <div class="carousel-caption container">
-                    <span class="category-tag tag-python">Backend</span>
-                    <h1>Python Dominando APIs com FastAPI</h1>
-                    <p>A velocidade do FastAPI está mudando o desenvolvimento de back-end moderno.</p>
-                    <a href="#" class="btn-main">Ler Notícia</a>
-                </div>
-            </div>
-
-            <button id="prevBtn" class="carousel-control">❮</button>
-            <button id="nextBtn" class="carousel-control">❯</button>
-        </section>
-        <h2>AqGoes</h2>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae autem quidem eaque excepturi repellendus dolorum accusamus. Similique nobis autem quis sit quibusdam! Eveniet aliquam deleniti delectus itaque veniam earum reiciendis.
-        </p>
-        <section class="featured-section container">
-            <div class="featured-grid">
-                <article class="main-post">
-                    <div class="post-overlay">
-                        <span class="category-tag tag-web">Carreira</span>
-                        <h2>Como se tornar um Desenvolvedor Fullstack</h2>
-                        <p>Um guia completo desde o HTML básico até a orquestração de microserviços.</p>
-                        <a href="#" class="read-more-link">Continuar lendo →</a>
-                    </div>
-                </article>
-
-                <div class="side-posts">
-                    <article class="side-post-item item-1">
-                        <div class="side-post-content">
-                            <span class="category-tag tag-html">CSS</span>
-                            <h3>Novas Unidades de Viewport em 2026</h3>
-                        </div>
-                    </article>
-                    <article class="side-post-item item-2">
-                        <div class="side-post-content">
-                            <span class="category-tag tag-python">Python</span>
-                            <h3>Dicas de Performance no Django</h3>
-                        </div>
-                    </article>
-                    <article class="side-post-item item-3">
-                        <div class="side-post-content">
-                            <span class="category-tag tag-web">JS</span>
-                            <h3>O que é o novo Runtime Bun?</h3>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="blog" class="news-section container">
-            <div class="section-header">
-                <h2>Últimas do Blog</h2>
-            </div>
-            <div class="news-grid">
-                <article class="news-card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?q=80&w=600" alt="CSS">
-                        <span class="category-tag tag-html card-tag">HTML & CSS</span>
-                    </div>
-                    <div class="card-content">
-                        <h3>Guia Definitivo de CSS Grid</h3>
-                        <p>Domine layouts complexos com facilidade utilizando propriedades modernas.</p>
-                        <div class="card-footer">
-                            <span>Por Ana Silva</span>
-                            <a href="#" class="read-more">Ler mais →</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="news-card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600" alt="Python">
-                        <span class="category-tag tag-python card-tag">Python</span>
-                    </div>
-                    <div class="card-content">
-                        <h3>Análise de Dados com Python</h3>
-                        <p>Aprenda a extrair informações valiosas de sites e APIs usando Pandas.</p>
-                        <div class="card-footer">
-                            <span>Por Carlos Gomes</span>
-                            <a href="#" class="read-more">Ler mais →</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="news-card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=600" alt="Web Dev">
-                        <span class="category-tag tag-web card-tag">Web Dev</span>
-                    </div>
-                    <div class="card-content">
-                        <h3>React vs Next.js</h3>
-                        <p>Entenda as diferenças arquiteturais e quando usar cada um.</p>
-                        <div class="card-footer">
-                            <span>Por Bruno Costa</span>
-                            <a href="#" class="read-more">Ler mais →</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-    </main>
-
-    <footer id="contato" class="main-footer">
-        <div class="container">
-            <p>&copy; 2026 DevNews - Criado com foco em Performance.</p>
+        <div class="hero__card-stack">
+          <!-- Cards decorativos representando categorias -->
+          <article class="hero__card hero__card--1">
+            <span class="card__icon">🌐</span>
+            <h3>HTML & CSS</h3>
+            <p>Estrutura e estilo modernos</p>
+          </article>
+          <article class="hero__card hero__card--2">
+            <span class="card__icon">⚡</span>
+            <h3>JavaScript</h3>
+            <p>Interatividade e DOM</p>
+          </article>
+          <article class="hero__card hero__card--3">
+            <span class="card__icon">🐍</span>
+            <h3>Python</h3>
+            <p>Back-end para a web</p>
+          </article>
         </div>
-    </footer>
+      </div>
 
-    <script src="js/scripts.js"></script>
+      <!-- Scroll indicator -->
+      <div class="hero__scroll">
+        <span>scroll</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ========== SEÇÃO 2: ÚLTIMAS NOTÍCIAS ========== -->
+    <!--
+      CONCEITO: Grid de cards com as notícias mais recentes.
+      O primeiro card é "featured" (destaque) e ocupa mais espaço.
+      Isso é uma prática comum em portais de notícias.
+    -->
+    <section class="news" id="noticias">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">Últimas <span>Notícias</span></h2>
+          <a href="artigos.html" class="section__link">Ver todas →</a>
+        </div>
+
+        <div class="news__grid">
+
+          <!-- Card em Destaque -->
+          <article class="news__card news__card--featured">
+            <div class="news__card-img">
+              <div class="news__card-placeholder" data-category="JavaScript"></div>
+              <span class="news__badge">Em Alta</span>
+            </div>
+            <div class="news__card-body">
+              <span class="news__category">JavaScript</span>
+              <h3 class="news__title">
+                <a href="#">O que muda no ECMAScript 2025: novidades que vão transformar seu código</a>
+              </h3>
+              <p class="news__excerpt">
+                Decorators nativos, novos métodos de Array e melhorias no sistema de módulos. Veja o que está chegando.
+              </p>
+              <div class="news__meta">
+                <span class="news__author">👤 Ana Dev</span>
+                <span class="news__date">📅 Fev 2025</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Cards normais -->
+          <article class="news__card">
+            <div class="news__card-img">
+              <div class="news__card-placeholder" data-category="CSS"></div>
+            </div>
+            <div class="news__card-body">
+              <span class="news__category">CSS</span>
+              <h3 class="news__title">
+                <a href="#">CSS Container Queries: layouts verdadeiramente responsivos</a>
+              </h3>
+              <div class="news__meta">
+                <span class="news__author">👤 Carlos UI</span>
+                <span class="news__date">📅 Jan 2025</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="news__card">
+            <div class="news__card-img">
+              <div class="news__card-placeholder" data-category="Python"></div>
+            </div>
+            <div class="news__card-body">
+              <span class="news__category">Python</span>
+              <h3 class="news__title">
+                <a href="#">FastAPI vs Django: qual escolher para sua API REST em 2025?</a>
+              </h3>
+              <div class="news__meta">
+                <span class="news__author">👤 Bia Backend</span>
+                <span class="news__date">📅 Jan 2025</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="news__card">
+            <div class="news__card-img">
+              <div class="news__card-placeholder" data-category="HTML"></div>
+            </div>
+            <div class="news__card-body">
+              <span class="news__category">HTML</span>
+              <h3 class="news__title">
+                <a href="#">Semântica HTML5: guia completo para acessibilidade e SEO</a>
+              </h3>
+              <div class="news__meta">
+                <span class="news__author">👤 Diego Full</span>
+                <span class="news__date">📅 Dez 2024</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SEÇÃO 3: CATEGORIAS ========== -->
+    <!--
+      CONCEITO: Apresenta as 4 categorias do site com visual forte.
+      Cada categoria tem sua cor/gradiente e um contador de artigos.
+      Boa prática: dar ao usuário uma visão geral do conteúdo disponível.
+    -->
+    <section class="categories" id="categorias">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">Explore por <span>Categoria</span></h2>
+        </div>
+
+        <div class="categories__grid">
+
+          <a href="artigos.html?cat=html" class="category__card category__card--html">
+            <div class="category__icon">🌐</div>
+            <h3>HTML</h3>
+            <p>Semântica, acessibilidade e estrutura moderna</p>
+            <span class="category__count">12 artigos</span>
+          </a>
+
+          <a href="artigos.html?cat=css" class="category__card category__card--css">
+            <div class="category__icon">🎨</div>
+            <h3>CSS</h3>
+            <p>Layouts, animações e design systems</p>
+            <span class="category__count">18 artigos</span>
+          </a>
+
+          <a href="artigos.html?cat=js" class="category__card category__card--js">
+            <div class="category__icon">⚡</div>
+            <h3>JavaScript</h3>
+            <p>ES2025, APIs modernas e performance</p>
+            <span class="category__count">24 artigos</span>
+          </a>
+
+          <a href="artigos.html?cat=python" class="category__card category__card--python">
+            <div class="category__icon">🐍</div>
+            <h3>Python</h3>
+            <p>Web scraping, APIs e automação</p>
+            <span class="category__count">15 artigos</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SEÇÃO 4: NEWSLETTER ========== -->
+    <!--
+      CONCEITO: Seção de conversão — captura e-mail do visitante.
+      Layout centralizado com destaque visual forte para incentivar o cadastro.
+      O formulário aqui é simples; validação completa está no contato.html.
+    -->
+    <section class="newsletter" id="newsletter">
+      <div class="container">
+        <div class="newsletter__content">
+          <span class="newsletter__tag">📬 Newsletter semanal</span>
+          <h2>Fique por dentro de tudo</h2>
+          <p>Receba os melhores artigos de tecnologia diretamente no seu e-mail, toda semana.</p>
+
+          <form class="newsletter__form" id="newsletterForm">
+            <div class="newsletter__input-group">
+              <input
+                type="email"
+                id="newsletterEmail"
+                name="email"
+                placeholder="seu@email.com"
+                required
+                autocomplete="email"
+              />
+              <button type="submit" class="btn btn--primary">Inscrever</button>
+            </div>
+            <p class="newsletter__privacy">🔒 Sem spam. Cancele quando quiser.</p>
+            <div class="newsletter__feedback" id="newsletterFeedback" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" class="nav__logo">Tech<span>Pulse</span></a>
+        <p>Conteúdo técnico de qualidade para desenvolvedores web.</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Links do rodapé">
+        <h4>Páginas</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="artigos.html">Artigos</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__nav" aria-label="Categorias">
+        <h4>Categorias</h4>
+        <ul>
+          <li><a href="#">HTML</a></li>
+          <li><a href="#">CSS</a></li>
+          <li><a href="#">JavaScript</a></li>
+          <li><a href="#">Python</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__social">
+        <h4>Redes</h4>
+        <div class="social__links">
+          <a href="#" aria-label="GitHub">GH</a>
+          <a href="#" aria-label="Twitter">TW</a>
+          <a href="#" aria-label="LinkedIn">LN</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom container">
+      <p>© 2025 TechPulse. Feito com ❤️ para devs.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
