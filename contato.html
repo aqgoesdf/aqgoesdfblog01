@@ -1,113 +1,269 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contato | TechPortal</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato – TechPulse</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
-<body class="bg-gray-50 text-gray-900 antialiased">
+<body>
 
-    <nav class="bg-white border-b border-gray-200">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-black text-blue-700">Tech<span class="text-gray-900">Portal</span></a>
-            <a href="index.html" class="text-sm font-bold text-gray-600 hover:text-blue-700 transition">Voltar ao Blog</a>
-        </div>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">Tech<span>Pulse</span></a>
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="artigos.html" class="nav__link">Artigos</a></li>
+        <li><a href="sobre.html" class="nav__link">Sobre</a></li>
+        <li><a href="contato.html" class="nav__link active">Contato</a></li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
+  </header>
 
-    <main class="container mx-auto px-4 py-12 md:py-20">
-        <header class="text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Vamos Conversar?</h1>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                Tem uma dúvida sobre IA, sugestão de pauta para o blog ou quer falar sobre um projeto em Python? Use o formulário abaixo.
-            </p>
-        </header>
+  <main>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-6xl mx-auto">
-            
-            <section class="lg:col-span-7 bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
-                    <span class="w-2 h-8 bg-blue-700 rounded-full"></span>
-                    Envie uma Mensagem
-                </h2>
-                
-                <form action="#" method="POST" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="nome" class="block text-sm font-semibold text-gray-700 mb-2">Nome Completo</label>
-                            <input type="text" id="nome" name="nome" required 
-                                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">E-mail Corporativo</label>
-                            <input type="email" id="email" name="email" required 
-                                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition">
-                        </div>
-                    </div>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="hero__tag">✉️ Fale conosco</span>
+        <h1>Entre em <em>Contato</em></h1>
+        <p>Dúvidas, sugestões, parcerias ou só um alô? Estamos aqui.</p>
+      </div>
+    </section>
 
-                    <div>
-                        <label for="assunto" class="block text-sm font-semibold text-gray-700 mb-2">Assunto</label>
-                        <select id="assunto" name="assunto" 
-                            class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition appearance-none bg-white">
-                            <option>Dúvida Técnica (Python/IA)</option>
-                            <option>Sugestão de Conteúdo</option>
-                            <option>Parcerias e Projetos</option>
-                            <option>Outros</option>
-                        </select>
-                    </div>
+    <!-- CONTATO GRID: Formulário + Info -->
+    <section class="contact section-pad">
+      <div class="container contact__grid">
 
-                    <div>
-                        <label for="mensagem" class="block text-sm font-semibold text-gray-700 mb-2">Sua Mensagem</label>
-                        <textarea id="mensagem" name="mensagem" rows="5" required 
-                            class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition resize-none"></textarea>
-                    </div>
+        <!-- ===== FORMULÁRIO PRINCIPAL ===== -->
+        <!--
+          CONCEITO DE ACESSIBILIDADE:
+          - Todo input tem um <label> associado via "for" e "id"
+          - aria-describedby conecta o input à mensagem de erro
+          - aria-invalid indica estado de erro para leitores de tela
+          - role="alert" na mensagem de sucesso garante anúncio imediato
+        -->
+        <div class="contact__form-wrapper">
+          <h2>Envie uma mensagem</h2>
 
-                    <button type="submit" 
-                        class="w-full md:w-auto bg-blue-700 text-white font-bold py-4 px-10 rounded-full hover:bg-blue-800 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
-                        Enviar Mensagem Agora
-                    </button>
-                </form>
-            </section>
+          <form class="contact__form" id="contactForm" novalidate>
 
-            <aside class="lg:col-span-5 space-y-8">
-                
-                <article class="bg-gray-900 text-white p-8 rounded-2xl shadow-xl relative overflow-hidden">
-                    <div class="relative z-10">
-                        <h2 class="text-2xl font-bold mb-6">Contatos Diretos</h2>
-                        <ul class="space-y-6">
-                            <li class="flex items-start gap-4">
-                                <span class="bg-blue-700 p-2 rounded-lg text-xl">📧</span>
-                                <div>
-                                    <h3 class="font-bold">E-mail</h3>
-                                    <p class="text-blue-200 text-sm">contato@techportal.com.br</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <span class="bg-blue-700 p-2 rounded-lg text-xl">💬</span>
-                                <div>
-                                    <h3 class="font-bold">LinkedIn</h3>
-                                    <p class="text-blue-200 text-sm">/in/seu-perfil-fullstack</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-blue-800 rounded-full opacity-20"></div>
-                </article>
+            <!-- Campo: Nome -->
+            <div class="form__group" id="groupNome">
+              <label for="nome" class="form__label">
+                Nome completo <span class="form__required" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                class="form__input"
+                placeholder="Seu nome"
+                autocomplete="name"
+                required
+                aria-describedby="nomeError"
+                aria-invalid="false"
+              />
+              <span class="form__error" id="nomeError" role="alert"></span>
+            </div>
 
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <h3 class="font-bold text-gray-900 mb-4 uppercase text-xs tracking-widest">Aviso Importante</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed">
-                        Como estou em fase de graduação e projetos em Python, o tempo de resposta pode variar em até 48h. Agradeço a compreensão!
-                    </p>
-                </div>
+            <!-- Campo: E-mail -->
+            <div class="form__group" id="groupEmail">
+              <label for="email" class="form__label">
+                E-mail <span class="form__required" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form__input"
+                placeholder="seu@email.com"
+                autocomplete="email"
+                required
+                aria-describedby="emailError"
+                aria-invalid="false"
+              />
+              <span class="form__error" id="emailError" role="alert"></span>
+            </div>
 
-            </aside>
+            <!-- Campo: Assunto -->
+            <div class="form__group" id="groupAssunto">
+              <label for="assunto" class="form__label">
+                Assunto <span class="form__required" aria-hidden="true">*</span>
+              </label>
+              <select
+                id="assunto"
+                name="assunto"
+                class="form__input form__select"
+                required
+                aria-describedby="assuntoError"
+                aria-invalid="false"
+              >
+                <option value="">Selecione um assunto...</option>
+                <option value="duvida">Dúvida técnica</option>
+                <option value="sugestao">Sugestão de conteúdo</option>
+                <option value="parceria">Parceria / Colaboração</option>
+                <option value="erro">Reportar erro</option>
+                <option value="outro">Outro</option>
+              </select>
+              <span class="form__error" id="assuntoError" role="alert"></span>
+            </div>
+
+            <!-- Campo: Mensagem -->
+            <div class="form__group" id="groupMensagem">
+              <label for="mensagem" class="form__label">
+                Mensagem <span class="form__required" aria-hidden="true">*</span>
+              </label>
+              <textarea
+                id="mensagem"
+                name="mensagem"
+                class="form__input form__textarea"
+                placeholder="Escreva sua mensagem aqui..."
+                rows="5"
+                required
+                minlength="20"
+                aria-describedby="mensagemError mensagemCount"
+                aria-invalid="false"
+              ></textarea>
+              <div class="form__textarea-footer">
+                <span class="form__error" id="mensagemError" role="alert"></span>
+                <span class="form__char-count" id="mensagemCount">0 / 500 caracteres</span>
+              </div>
+            </div>
+
+            <!-- Honeypot (anti-spam) - escondido via CSS, não via display:none -->
+            <div class="form__group form__honeypot" aria-hidden="true">
+              <label for="website">Website (não preencha)</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <!-- Botão de envio -->
+            <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
+              <span class="btn__text">Enviar mensagem</span>
+              <span class="btn__loading hidden">Enviando...</span>
+            </button>
+
+          </form>
+
+          <!-- Feedback de sucesso -->
+          <div class="form__success hidden" id="formSuccess" role="alert" aria-live="assertive">
+            <div class="success__icon">✅</div>
+            <h3>Mensagem enviada!</h3>
+            <p>Recebemos seu contato e responderemos em até 48 horas. Obrigado!</p>
+            <button class="btn btn--ghost" id="newMessageBtn">Enviar outra mensagem</button>
+          </div>
         </div>
-    </main>
 
-    <footer class="text-center py-10 text-gray-400 text-sm">
-        <p>&copy; 2026 TechPortal - Criado com a stack Fullstack/IA</p>
-    </footer>
+        <!-- ===== INFORMAÇÕES DE CONTATO ===== -->
+        <aside class="contact__info">
+          <h2>Outras formas de falar com a gente</h2>
 
+          <div class="contact__info-list">
+
+            <div class="contact__info-item">
+              <div class="contact__info-icon">📧</div>
+              <div>
+                <strong>E-mail</strong>
+                <p>contato@techpulse.dev</p>
+              </div>
+            </div>
+
+            <div class="contact__info-item">
+              <div class="contact__info-icon">💬</div>
+              <div>
+                <strong>Discord</strong>
+                <p>discord.gg/techpulse</p>
+              </div>
+            </div>
+
+            <div class="contact__info-item">
+              <div class="contact__info-icon">🐙</div>
+              <div>
+                <strong>GitHub</strong>
+                <p>github.com/techpulse</p>
+              </div>
+            </div>
+
+            <div class="contact__info-item">
+              <div class="contact__info-icon">⏰</div>
+              <div>
+                <strong>Tempo de resposta</strong>
+                <p>Geralmente dentro de 48 horas úteis</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- FAQ rápido -->
+          <div class="contact__faq">
+            <h3>Perguntas frequentes</h3>
+
+            <details class="faq__item">
+              <summary>Posso sugerir um tema de artigo?</summary>
+              <p>Sim! Use o formulário e selecione "Sugestão de conteúdo". Adoramos receber ideias da comunidade.</p>
+            </details>
+
+            <details class="faq__item">
+              <summary>Como me tornar autor?</summary>
+              <p>Entre em contato via e-mail com alguns exemplos do seu trabalho. Analisamos todas as propostas.</p>
+            </details>
+
+            <details class="faq__item">
+              <summary>O conteúdo é sempre gratuito?</summary>
+              <p>Sim! Todo o conteúdo do TechPulse é gratuito e sempre será. Somos sustentados pela comunidade.</p>
+            </details>
+          </div>
+
+        </aside>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" class="nav__logo">Tech<span>Pulse</span></a>
+        <p>Conteúdo técnico de qualidade para desenvolvedores web.</p>
+      </div>
+      <nav class="footer__nav">
+        <h4>Páginas</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="artigos.html">Artigos</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+      <nav class="footer__nav">
+        <h4>Categorias</h4>
+        <ul>
+          <li><a href="#">HTML</a></li>
+          <li><a href="#">CSS</a></li>
+          <li><a href="#">JavaScript</a></li>
+          <li><a href="#">Python</a></li>
+        </ul>
+      </nav>
+      <div class="footer__social">
+        <h4>Redes</h4>
+        <div class="social__links">
+          <a href="#" aria-label="GitHub">GH</a>
+          <a href="#" aria-label="Twitter">TW</a>
+          <a href="#" aria-label="LinkedIn">LN</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+      <p>© 2025 TechPulse. Feito com ❤️ para devs.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>

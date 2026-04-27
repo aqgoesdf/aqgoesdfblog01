@@ -1,101 +1,203 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Mim | DevAI Blog</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        // Configuração opcional para personalizar o Tailwind
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: '#2563eb', // Um azul moderno para links e botões
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Ajuste fino para garantir que o scroll seja suave */
-        html { scroll-behavior: smooth; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre – TechPulse</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
-<body class="bg-gray-50 text-gray-900 antialiased">
+<body>
 
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-gray-800">Dev<span class="text-brand">AI</span></a>
-            <div class="flex items-center gap-6">
-                <a href="index.html" class="text-gray-600 hover:text-brand transition">Home</a>
-                <a href="#" class="font-semibold text-brand">Sobre</a>
-                <a href="blog.html" class="font-semibold text-brand">Blog</a>
-            </div>
-        </nav>
-    </header>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">Tech<span>Pulse</span></a>
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="artigos.html" class="nav__link">Artigos</a></li>
+        <li><a href="sobre.html" class="nav__link active">Sobre</a></li>
+        <li><a href="contato.html" class="nav__link">Contato</a></li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
 
-    <main class="container mx-auto px-6 py-12 md:py-20">
-        <header class="text-center mb-16 md:mb-24">
-            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">
-                Olá, eu sou o [Seu Nome]
-            </h1>
-            <p class="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">
-                Estudante de Fullstack, entusiasta de IA e apaixonado por transformar café em código semântico.
-            </p>
-        </header>
+  <main>
 
-        <section class="grid md:grid-cols-2 gap-12 items-center mb-20 md:mb-32">
-            <div class="space-y-6 order-2 md:order-1">
-                <h2 class="text-3xl font-bold text-gray-900 tracking-tight">Minha Jornada no Desenvolvimento Web</h2>
-                <p class="text-lg text-gray-700 leading-relaxed">
-                    Atualmente, estou imerso na minha graduação em Desenvolvimento Fullstack pela Cruzeiro do Sul, onde solidifico os fundamentos da engenharia de software. Paralelamente, estou refinando minha lógica e domínio de Python com a didática excepcional do Professor Gustavo Guanabara no Curso em Vídeo.
-                </p>
-                <p class="text-lg text-gray-700 leading-relaxed">
-                    Acredito que o bom desenvolvimento web não é apenas sobre "funcionar", mas sobre ser acessível, semântico e performático. É essa base que me prepara para os desafios mais complexos.
-                </p>
-            </div>
-            <div class="order-1 md:order-2 bg-gray-200 rounded-2xl aspect-square flex items-center justify-center overflow-hidden shadow-xl">
-                <span class="text-gray-500">[Sua Imagem de Perfil/Estudo 1]</span>
-            </div>
-        </section>
-
-        <section class="grid md:grid-cols-2 gap-12 items-center mb-24 md:mb-36">
-            <div class="bg-gray-200 rounded-2xl aspect-square flex items-center justify-center overflow-hidden shadow-xl">
-                <span class="text-gray-500">[Sua Imagem/Gráfico de IA 2]</span>
-            </div>
-            <div class="space-y-6">
-                <h3 class="text-3xl font-bold text-gray-900 tracking-tight">A Interseção com a Inteligência Artificial</h3>
-                <p class="text-lg text-gray-700 leading-relaxed">
-                    O que me move hoje é o potencial transformador da IA Generativa no desenvolvimento web. Não vejo a IA como uma substituta, mas como um copiloto poderoso. Estou me especializando em conectar modelos de linguagem avançados a interfaces web modernas.
-                </p>
-                <p class="text-lg text-gray-700 leading-relaxed">
-                    Este blog é o meu laboratório público, onde documento como utilizo ferramentas para agilizar o fluxo de trabalho, otimizar código e criar experiências de usuário mais inteligentes e personalizadas.
-                </p>
-            </div>
-        </section>
-
-    </main>
-
-    <section class="bg-brand text-white py-20 mt-auto">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-6">
-                Acompanhe minha evolução técnica
-            </h2>
-            <p class="text-xl text-blue-100 max-w-2xl mx-auto mb-10">
-                No meu blog, compartilho tutoriais, insights sobre a graduação e experimentos práticos unindo Python, Next.js e Inteligência Artificial.
-            </p>
-            <a href="index.html" class="inline-block bg-white text-brand font-semibold px-8 py-4 rounded-full text-lg shadow-lg hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-1">
-                Ir para o Blog
-            </a>
-        </div>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="hero__tag">👋 Quem somos</span>
+        <h1>Sobre o <em>TechPulse</em></h1>
+        <p>Uma plataforma de conteúdo técnico criada por devs, para devs.</p>
+      </div>
     </section>
 
-    <footer class="bg-gray-900 text-gray-400 py-8">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2023 [Seu Nome]. Desenvolvido com HTML5 Semântico e Tailwind CSS.</p>
+    <!-- MISSÃO -->
+    <section class="about-mission section-pad">
+      <div class="container about-mission__grid">
+        <div class="about-mission__text">
+          <h2>Nossa <span>Missão</span></h2>
+          <p>
+            O TechPulse nasceu da frustração com conteúdos rasos e tutoriais que param no "Hello World".
+            Queremos ir fundo: explicar o porquê das coisas, mostrar as melhores práticas e preparar
+            desenvolvedores para o mercado real.
+          </p>
+          <p>
+            Cobrimos as quatro pilares do desenvolvimento web moderno: <strong>HTML</strong> semântico,
+            <strong>CSS</strong> avançado, <strong>JavaScript</strong> moderno e <strong>Python</strong>
+            para o back-end. Sem enrolação.
+          </p>
         </div>
-    </footer>
+        <div class="about-mission__stats">
+          <div class="stat__card">
+            <strong>69+</strong>
+            <span>Artigos publicados</span>
+          </div>
+          <div class="stat__card">
+            <strong>4</strong>
+            <span>Tecnologias cobertas</span>
+          </div>
+          <div class="stat__card">
+            <strong>5k+</strong>
+            <span>Leitores mensais</span>
+          </div>
+          <div class="stat__card">
+            <strong>100%</strong>
+            <span>Conteúdo gratuito</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- TECNOLOGIAS -->
+    <section class="about-tech section-pad">
+      <div class="container">
+        <h2 class="section__title">O que <span>abordamos</span></h2>
+
+        <div class="tech__list">
+
+          <div class="tech__item">
+            <div class="tech__icon">🌐</div>
+            <div>
+              <h3>HTML5</h3>
+              <p>Semântica, acessibilidade (ARIA), Web Components, SEO técnico e as novidades do HTML Living Standard.</p>
+            </div>
+          </div>
+
+          <div class="tech__item">
+            <div class="tech__icon">🎨</div>
+            <div>
+              <h3>CSS Moderno</h3>
+              <p>Flexbox, Grid, Container Queries, Custom Properties, animações performáticas e design systems.</p>
+            </div>
+          </div>
+
+          <div class="tech__item">
+            <div class="tech__icon">⚡</div>
+            <div>
+              <h3>JavaScript</h3>
+              <p>ES2025, manipulação de DOM, Fetch API, Web Workers, performance e as melhores práticas do ecossistema.</p>
+            </div>
+          </div>
+
+          <div class="tech__item">
+            <div class="tech__icon">🐍</div>
+            <div>
+              <h3>Python Web</h3>
+              <p>FastAPI, Django, Flask, web scraping com BeautifulSoup e automação para desenvolvedores web.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EQUIPE -->
+    <section class="about-team section-pad">
+      <div class="container">
+        <h2 class="section__title">A <span>Equipe</span></h2>
+        <div class="team__grid">
+
+          <article class="team__card">
+            <div class="team__avatar team__avatar--1">AD</div>
+            <h3>Ana Dev</h3>
+            <span class="team__role">Front-end & CSS</span>
+            <p>Especialista em design systems e CSS avançado. 8 anos de experiência em UIs complexas.</p>
+          </article>
+
+          <article class="team__card">
+            <div class="team__avatar team__avatar--2">CB</div>
+            <h3>Carlos Backend</h3>
+            <span class="team__role">Python & APIs</span>
+            <p>Desenvolvedor Python há 6 anos, apaixonado por FastAPI e arquiteturas escaláveis.</p>
+          </article>
+
+          <article class="team__card">
+            <div class="team__avatar team__avatar--3">BF</div>
+            <h3>Bia Full Stack</h3>
+            <span class="team__role">JavaScript & Node</span>
+            <p>Full stack com foco em performance web e JavaScript moderno. Contribuidora open source.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="about-cta section-pad">
+      <div class="container">
+        <div class="cta__box">
+          <h2>Quer contribuir?</h2>
+          <p>Estamos sempre abertos a novos autores e parcerias. Entre em contato!</p>
+          <a href="contato.html" class="btn btn--primary">Falar com a gente</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" class="nav__logo">Tech<span>Pulse</span></a>
+        <p>Conteúdo técnico de qualidade para desenvolvedores web.</p>
+      </div>
+      <nav class="footer__nav">
+        <h4>Páginas</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="artigos.html">Artigos</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+      <nav class="footer__nav">
+        <h4>Categorias</h4>
+        <ul>
+          <li><a href="#">HTML</a></li>
+          <li><a href="#">CSS</a></li>
+          <li><a href="#">JavaScript</a></li>
+          <li><a href="#">Python</a></li>
+        </ul>
+      </nav>
+      <div class="footer__social">
+        <h4>Redes</h4>
+        <div class="social__links">
+          <a href="#" aria-label="GitHub">GH</a>
+          <a href="#" aria-label="Twitter">TW</a>
+          <a href="#" aria-label="LinkedIn">LN</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+      <p>© 2025 TechPulse. Feito com ❤️ para devs.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
