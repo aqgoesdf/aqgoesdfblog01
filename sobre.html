@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mim | DevAI Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Configuração opcional para personalizar o Tailwind
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#2563eb', // Um azul moderno para links e botões
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Ajuste fino para garantir que o scroll seja suave */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-gray-800">Dev<span class="text-brand">AI</span></a>
+            <div class="flex items-center gap-6">
+                <a href="index.html" class="text-gray-600 hover:text-brand transition">Home</a>
+                <a href="#" class="font-semibold text-brand">Sobre</a>
+                <a href="blog.html" class="font-semibold text-brand">Blog</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 md:py-20">
+        <header class="text-center mb-16 md:mb-24">
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">
+                Olá, eu sou o [Seu Nome]
+            </h1>
+            <p class="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">
+                Estudante de Fullstack, entusiasta de IA e apaixonado por transformar café em código semântico.
+            </p>
+        </header>
+
+        <section class="grid md:grid-cols-2 gap-12 items-center mb-20 md:mb-32">
+            <div class="space-y-6 order-2 md:order-1">
+                <h2 class="text-3xl font-bold text-gray-900 tracking-tight">Minha Jornada no Desenvolvimento Web</h2>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Atualmente, estou imerso na minha graduação em Desenvolvimento Fullstack pela Cruzeiro do Sul, onde solidifico os fundamentos da engenharia de software. Paralelamente, estou refinando minha lógica e domínio de Python com a didática excepcional do Professor Gustavo Guanabara no Curso em Vídeo.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Acredito que o bom desenvolvimento web não é apenas sobre "funcionar", mas sobre ser acessível, semântico e performático. É essa base que me prepara para os desafios mais complexos.
+                </p>
+            </div>
+            <div class="order-1 md:order-2 bg-gray-200 rounded-2xl aspect-square flex items-center justify-center overflow-hidden shadow-xl">
+                <span class="text-gray-500">[Sua Imagem de Perfil/Estudo 1]</span>
+            </div>
+        </section>
+
+        <section class="grid md:grid-cols-2 gap-12 items-center mb-24 md:mb-36">
+            <div class="bg-gray-200 rounded-2xl aspect-square flex items-center justify-center overflow-hidden shadow-xl">
+                <span class="text-gray-500">[Sua Imagem/Gráfico de IA 2]</span>
+            </div>
+            <div class="space-y-6">
+                <h3 class="text-3xl font-bold text-gray-900 tracking-tight">A Interseção com a Inteligência Artificial</h3>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    O que me move hoje é o potencial transformador da IA Generativa no desenvolvimento web. Não vejo a IA como uma substituta, mas como um copiloto poderoso. Estou me especializando em conectar modelos de linguagem avançados a interfaces web modernas.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Este blog é o meu laboratório público, onde documento como utilizo ferramentas para agilizar o fluxo de trabalho, otimizar código e criar experiências de usuário mais inteligentes e personalizadas.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <section class="bg-brand text-white py-20 mt-auto">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-6">
+                Acompanhe minha evolução técnica
+            </h2>
+            <p class="text-xl text-blue-100 max-w-2xl mx-auto mb-10">
+                No meu blog, compartilho tutoriais, insights sobre a graduação e experimentos práticos unindo Python, Next.js e Inteligência Artificial.
+            </p>
+            <a href="index.html" class="inline-block bg-white text-brand font-semibold px-8 py-4 rounded-full text-lg shadow-lg hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-1">
+                Ir para o Blog
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2023 [Seu Nome]. Desenvolvido com HTML5 Semântico e Tailwind CSS.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
