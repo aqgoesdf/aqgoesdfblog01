@@ -31,11 +31,6 @@
   <main>
 
     <!-- ========== SEÇÃO 1: HERO ========== -->
-    <!--
-      CONCEITO: A seção hero é o "cartão de visitas" do site.
-      Usamos um gradiente animado no fundo e um layout assimétrico
-      para criar impacto visual imediato.
-    -->
     <section class="hero" id="hero">
       <div class="hero__bg"></div>
       <div class="container hero__content">
@@ -84,11 +79,6 @@
     </section>
 
     <!-- ========== SEÇÃO 2: ÚLTIMAS NOTÍCIAS ========== -->
-    <!--
-      CONCEITO: Grid de cards com as notícias mais recentes.
-      O primeiro card é "featured" (destaque) e ocupa mais espaço.
-      Isso é uma prática comum em portais de notícias.
-    -->
     <section class="news" id="noticias">
       <div class="container">
         <div class="section__header">
@@ -98,8 +88,8 @@
 
         <div class="news__grid">
 
-          <!-- Card em Destaque -->
-          <article class="news__card ">
+          <!-- Card em Destaque (Adicionada a classe modificadora se aplicável ao seu CSS) -->
+          <article class="news__card news__card--featured">
             <div class="news__card-img">
               <div class="news__card-placeholder" data-category="JavaScript"></div>
               <span class="news__badge">Em Alta</span>
@@ -168,7 +158,7 @@
             </div>
           </article>
 
-             <article class="news__card">
+          <article class="news__card">
             <div class="news__card-img">
               <div class="news__card-placeholder" data-category="Python"></div>
             </div>
@@ -184,7 +174,7 @@
             </div>
           </article>
 
-            <article class="news__card">
+          <article class="news__card">
             <div class="news__card-img">
               <div class="news__card-placeholder" data-category="HTML"></div>
             </div>
@@ -205,11 +195,6 @@
     </section>
 
     <!-- ========== SEÇÃO 3: CATEGORIAS ========== -->
-    <!--
-      CONCEITO: Apresenta as 4 categorias do site com visual forte.
-      Cada categoria tem sua cor/gradiente e um contador de artigos.
-      Boa prática: dar ao usuário uma visão geral do conteúdo disponível.
-    -->
     <section class="categories" id="categorias">
       <div class="container">
         <div class="section__header">
@@ -217,7 +202,6 @@
         </div>
 
         <div class="categories__grid">
-
           <a href="artigos.html?cat=html" class="category__card category__card--html">
             <div class="category__icon">🌐</div>
             <h3>HTML</h3>
@@ -245,17 +229,11 @@
             <p>Web scraping, APIs e automação</p>
             <span class="category__count">15 artigos</span>
           </a>
-
         </div>
       </div>
     </section>
 
     <!-- ========== SEÇÃO 4: NEWSLETTER ========== -->
-    <!--
-      CONCEITO: Seção de conversão — captura e-mail do visitante.
-      Layout centralizado com destaque visual forte para incentivar o cadastro.
-      O formulário aqui é simples; validação completa está no contato.html.
-    -->
     <section class="newsletter" id="newsletter">
       <div class="container">
         <div class="newsletter__content">
@@ -323,7 +301,8 @@
     </div>
 
     <div class="footer__bottom container">
-      <p>© 2025 TechPulse. Feito com ❤️ para devs.</p>
+      <!-- Corrigido de TechPulse para AqGoEs -->
+      <p>© 2025 AqGoEs. Feito com ❤️ para devs.</p>
     </div>
   </footer>
 
