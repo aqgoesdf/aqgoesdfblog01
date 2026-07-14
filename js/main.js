@@ -1,9 +1,9 @@
 /**
- * TechPulse — main.js
+ * AqGoEs— main.js
  *
  * ORGANIZAÇÃO DO ARQUIVO:
  * 1. Utilitários gerais
- * 2. Navegação (mobile menu + scroll)
+ * 2. Navegação (mobile menu + accessibility)
  * 3. Formulário de contato (validação completa)
  * 4. Newsletter
  * 5. Filtro de artigos (artigos.html)
@@ -17,14 +17,10 @@
    1. UTILITÁRIOS
    ============================================================ */
 
-/**
- * Seleciona um elemento ou retorna null sem lançar erro.
- * Boa prática: evita crash quando uma função roda em página errada.
- */
 const $ = (selector, parent = document) => parent.querySelector(selector);
 const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
 
-/** Debounce: aguarda um tempo antes de executar (útil para busca) */
+/** Debounce: evita sobrecarga em eventos de digitação */
 function debounce(fn, delay = 300) {
   let timer;
   return (...args) => {
@@ -38,26 +34,42 @@ function debounce(fn, delay = 300) {
    ============================================================ */
 
 function initNav() {
-  const header  = $('#header');
-  const toggle  = $('#navToggle');
-  const menu    = $('#navMenu');
+  const header = $('#header');
+  const toggle = $('#navToggle');
+  const menu   = $('#navMenu');
 
   if (!header || !toggle || !menu) return;
+
+  const closeMenu = () => {
+    menu.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.focus(); // Retorna o foco para o botão ao fechar
+  };
 
   /* ---- Mobile menu toggle ---- */
   toggle.addEventListener('click', () => {
     const isOpen = menu.classList.toggle('open');
     toggle.classList.toggle('open', isOpen);
     toggle.setAttribute('aria-expanded', isOpen);
+
+    if (isOpen) {
+      // Foca no primeiro link do menu ao abrir para facilitar navegação por teclado
+      const firstLink = $('.nav__link', menu);
+      if (firstLink) setTimeout(() => firstLink.focus(), 100);
+    }
   });
 
   /* ---- Fechar menu ao clicar em link ---- */
   $$('.nav__link', menu).forEach(link => {
-    link.addEventListener('click', () => {
-      menu.classList.remove('open');
-      toggle.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
+    link.addEventListener('click', closeMenu);
+  });
+
+  /* ---- Acessibilidade: Fechar menu pressionando ESC ---- */
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu.classList.contains('open')) {
+      closeMenu();
+    }
   });
 
   /* ---- Header com fundo ao fazer scroll ---- */
@@ -71,22 +83,14 @@ function initNav() {
    3. FORMULÁRIO DE CONTATO
    ============================================================ */
 
-/**
- * CONCEITO DE VALIDAÇÃO:
- * Usamos "validação no envio + feedback em tempo real após primeiro erro".
- * Isso evita mostrar erros enquanto o usuário ainda está digitando,
- * mas fornece feedback imediato depois que ele sai do campo com erro.
- */
-
 function initContactForm() {
-  const form       = $('#contactForm');
+  const form = $('#contactForm');
   if (!form) return;
 
-  const submitBtn  = $('#submitBtn');
+  const submitBtn   = $('#submitBtn');
   const formSuccess = $('#formSuccess');
-  const newMsgBtn  = $('#newMessageBtn');
+  const newMsgBtn   = $('#newMessageBtn');
 
-  /* --- Regras de validação por campo --- */
   const rules = {
     nome: {
       validate: (v) => {
@@ -98,7 +102,6 @@ function initContactForm() {
     email: {
       validate: (v) => {
         if (!v.trim()) return 'O e-mail é obrigatório.';
-        // Regex simples mas funcional para e-mails
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(v)) return 'Insira um e-mail válido.';
         return null;
@@ -135,21 +138,24 @@ function initContactForm() {
       group.classList.remove('success');
       errorEl.textContent = error;
       input.setAttribute('aria-invalid', 'true');
+      
+      // Conecta o input visualmente e por áudio à mensagem de erro
+      input.setAttribute('aria-describedby', `${fieldId}Error`);
       return false;
     } else {
       group.classList.remove('error');
       group.classList.add('success');
       errorEl.textContent = '';
       input.setAttribute('aria-invalid', 'false');
+      input.removeAttribute('aria-describedby');
       return true;
     }
   }
 
-  /** Valida todos os campos e retorna true se todos passaram */
   function validateAll() {
     return Object.keys(rules)
       .map(id => validateField(id))
-      .every(Boolean); // every(Boolean) = todos devem ser true
+      .every(Boolean);
   }
 
   /* --- Contador de caracteres do textarea --- */
@@ -161,7 +167,6 @@ function initContactForm() {
       const len = mensagemEl.value.length;
       charCount.textContent = `${len} / 500 caracteres`;
 
-      // Limite visual
       if (len > 500) {
         mensagemEl.value = mensagemEl.value.slice(0, 500);
         charCount.style.color = '#ff6584';
@@ -171,19 +176,16 @@ function initContactForm() {
     });
   }
 
-  /* --- Validação em tempo real (apenas após primeira submissão ou blur) --- */
   let hasSubmitted = false;
 
   Object.keys(rules).forEach(id => {
     const input = $(`#${id}`, form);
     if (!input) return;
 
-    // Valida quando sair do campo (blur)
     input.addEventListener('blur', () => {
       if (hasSubmitted) validateField(id);
     });
 
-    // Valida enquanto digita SE já houve tentativa de envio
     input.addEventListener('input', () => {
       if (hasSubmitted) validateField(id);
     });
@@ -194,31 +196,28 @@ function initContactForm() {
     e.preventDefault();
     hasSubmitted = true;
 
-    // Verifica honeypot (anti-spam)
     const honeypot = $('#website', form);
     if (honeypot && honeypot.value) {
       console.log('Spam detectado!');
       return;
     }
 
-    // Valida todos os campos
     if (!validateAll()) {
-      // Foca o primeiro campo com erro para acessibilidade
       const firstError = $('.form__group.error .form__input', form);
       if (firstError) firstError.focus();
       return;
     }
 
-    // Loading state
     setSubmitLoading(true);
 
     try {
-      // Simula requisição ao servidor (substitua por fetch real)
       await simulateRequest(1500);
-
-      // Sucesso: esconde form, mostra mensagem
       form.classList.add('hidden');
       formSuccess.classList.remove('hidden');
+      
+      // Move o foco para a mensagem de sucesso (melhora a acessibilidade)
+      formSuccess.setAttribute('tabindex', '-1');
+      formSuccess.focus();
 
     } catch (error) {
       console.error('Erro ao enviar:', error);
@@ -234,7 +233,6 @@ function initContactForm() {
       form.reset();
       hasSubmitted = false;
 
-      // Limpa todos os estados visuais
       $$('.form__group', form).forEach(g => {
         g.classList.remove('error', 'success');
       });
@@ -243,10 +241,13 @@ function initContactForm() {
 
       form.classList.remove('hidden');
       formSuccess.classList.add('hidden');
+      
+      // Foca no primeiro campo do formulário restaurado
+      const firstInput = $('input', form);
+      if (firstInput) firstInput.focus();
     });
   }
 
-  /** Alterna estado de loading no botão de envio */
   function setSubmitLoading(loading) {
     if (!submitBtn) return;
     const text    = $('.btn__text', submitBtn);
@@ -259,7 +260,6 @@ function initContactForm() {
     }
   }
 
-  /** Simula delay de rede — REMOVA em produção e use fetch() */
   function simulateRequest(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
@@ -289,7 +289,6 @@ function initNewsletter() {
     const btn = $('button[type="submit"]', form);
     if (btn) { btn.disabled = true; btn.textContent = 'Aguarde...'; }
 
-    // Simula cadastro
     await new Promise(r => setTimeout(r, 1000));
 
     showFeedback('✅ Inscrição realizada! Bem-vindo à newsletter.', 'success');
@@ -320,7 +319,6 @@ function initArticleFilter() {
 
   let currentFilter = 'all';
 
-  /** Filtra os cards com base na categoria e no texto buscado */
   function filterCards() {
     const query = searchInput?.value.toLowerCase().trim() ?? '';
     let visible = 0;
@@ -334,9 +332,8 @@ function initArticleFilter() {
 
       if (matchesFilter && matchesSearch) {
         card.style.display = '';
-        // Pequena animação de entrada
         card.style.animation = 'none';
-        card.offsetHeight; // reflow
+        card.offsetHeight; // Força reflow do navegador
         card.style.animation = 'fadeIn 0.3s ease';
         visible++;
       } else {
@@ -344,12 +341,10 @@ function initArticleFilter() {
       }
     });
 
-    // Atualiza contador
     if (countEl) {
       countEl.innerHTML = `Mostrando <strong>${visible}</strong> artigo${visible !== 1 ? 's' : ''}`;
     }
 
-    // Mostra/oculta mensagem de vazio
     if (emptyEl) {
       if (visible === 0) {
         emptyEl.classList.remove('hidden');
@@ -360,7 +355,6 @@ function initArticleFilter() {
     }
   }
 
-  /* --- Tabs de filtro --- */
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       tabs.forEach(t => {
@@ -374,12 +368,10 @@ function initArticleFilter() {
     });
   });
 
-  /* --- Busca com debounce (não dispara a cada tecla) --- */
   if (searchInput) {
     searchInput.addEventListener('input', debounce(filterCards, 250));
   }
 
-  /* --- Filtro por URL param (?cat=css) --- */
   const params = new URLSearchParams(window.location.search);
   const catParam = params.get('cat');
   if (catParam) {
@@ -389,16 +381,14 @@ function initArticleFilter() {
 }
 
 /* ============================================================
-   6. INTERSECTION OBSERVER (animações de entrada)
+   6. INTERSECTION OBSERVER (Animações de entrada)
    ============================================================ */
 
-/**
- * CONCEITO: O IntersectionObserver executa código quando um elemento
- * entra no viewport (área visível da tela). Aqui usamos para animar
- * cards e seções conforme o usuário rola a página.
- */
-
 function initScrollAnimations() {
+  // Evita rodar animações pesadas se o usuário preferir menos movimentos (Acessibilidade)
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
   const style = document.createElement('style');
   style.textContent = `
     .anim-ready {
@@ -419,7 +409,7 @@ function initScrollAnimations() {
 
   targets.forEach((el, i) => {
     el.classList.add('anim-ready');
-    el.style.transitionDelay = `${(i % 4) * 80}ms`; // stagger por coluna
+    el.style.transitionDelay = `${(i % 4) * 80}ms`;
   });
 
   const observer = new IntersectionObserver(
@@ -427,7 +417,7 @@ function initScrollAnimations() {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target); // anima apenas uma vez
+          observer.unobserve(entry.target);
         }
       });
     },
