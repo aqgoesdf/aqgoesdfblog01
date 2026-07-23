@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mim | AQGoes Web Developer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-bg text-text-primary font-sans antialiased scroll-smooth transition-colors duration-300 min-h-screen flex flex-col justify-between">
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 header-backdrop backdrop-blur-md border-b border-custom transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center relative">
+            
+            <!-- Logo -->
+            <a href="index.html" class="text-2xl font-bold tracking-wider text-gradient z-20">AQGoes</a>
+
+            <div class="flex items-center gap-2 z-20 md:hidden">
+                <!-- Botão Dark Mode (Mobile) -->
+                <button class="theme-toggle p-2 rounded-lg border border-custom text-text-primary hover:bg-bg-card transition-colors" aria-label="Alternar Tema">
+                    <span class="icon-moon text-lg">🌙</span>
+                    <span class="icon-sun text-lg hidden">☀️</span>
+                </button>
+
+                <!-- Botão Hambúrguer (Mobile) -->
+                <button id="menu-btn" aria-label="Abrir Menu" aria-expanded="false" class="text-text-primary hover:text-white focus:outline-none p-2">
+                    <svg id="icon-open" class="w-7 h-7 block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="icon-close" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Nav (Desktop + Mobile Dropdown) -->
+            <nav id="menu" class="hidden absolute top-full left-0 w-full menu-backdrop backdrop-blur-lg border-b border-custom p-6 flex-col space-y-4 md:static md:flex md:flex-row md:items-center md:space-y-0 md:space-x-8 md:w-auto md:bg-transparent md:border-none md:p-0 transition-all duration-300 z-10">
+                <a href="sobre.html" class="nav-link text-gradient font-semibold block py-2 md:py-0">Sobre</a>
+                <a href="index.html#trajetoria" class="nav-link hover:text-gradient transition-colors block py-2 md:py-0 font-medium">Trajetória</a>
+                <a href="index.html#tecnologias" class="nav-link hover:text-gradient transition-colors block py-2 md:py-0 font-medium">Tecnologias</a>
+                <a href="contato.html" class="nav-link hover:text-gradient transition-colors block py-2 md:py-0 font-medium">Contato</a>
+                
+                <div class="pt-4 md:pt-0 border-t border-custom md:border-none md:hidden">
+                    <a href="https://wa.me/seunumerodetelefone" target="_blank" class="block text-center bg-grad-primary text-white font-semibold px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
+                        Fale no WhatsApp
+                    </a>
+                </div>
+            </nav>
+
+            <!-- Ações Desktop (WhatsApp + Dark Mode) -->
+            <div class="hidden md:flex items-center space-x-4">
+                <button class="theme-toggle p-2 rounded-lg border border-custom text-text-primary hover:bg-bg-card transition-colors cursor-pointer" aria-label="Alternar Tema">
+                    <span class="icon-moon text-lg">🌙</span>
+                    <span class="icon-sun text-lg hidden">☀️</span>
+                </button>
+                <a href="https://wa.me/seunumerodetelefone" target="_blank" class="bg-grad-primary text-white font-semibold px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
+                    Fale Comigo
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- SEÇÃO PRINCIPAL - APRESENTAÇÃO -->
+    <main class="py-12 md:py-20 bg-grad-hero transition-colors duration-300 flex-grow">
+        <div class="max-w-6xl mx-auto px-4 space-y-20">
+            
+            <!-- Hero / Bio -->
+            <div class="grid md:grid-cols-12 gap-10 items-center">
+                <!-- Foto / Avatar -->
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-2 border-custom shadow-2xl p-2 bg-bg-card">
+                        <div class="w-full h-full rounded-xl overflow-hidden bg-grad-primary flex items-center justify-center text-6xl">
+                            <!-- Substitua pela sua tag <img> caso prefira usar uma foto real -->
+                            👨‍💻
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conteúdo textual -->
+                <div class="md:col-span-7 space-y-6 text-center md:text-left">
+                    <span class="text-gradient font-bold tracking-wider uppercase text-sm block">Conheça Minha História</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">
+                        Desenvolvedor Web & <span class="text-gradient">Entusiasta de Tecnologia</span>
+                    </h1>
+                    <p class="text-text-muted text-base md:text-lg leading-relaxed">
+                        Tenho forte atuação na área de suporte técnico e infraestrutura em TI, somada ao aprendizado contínuo no desenvolvimento web moderno. Combino a lógica da resolução de problemas com a criação de interfaces limpas, rápidas e eficientes.
+                    </p>
+                    <p class="text-text-muted text-base md:text-lg leading-relaxed">
+                        Meu objetivo é transformar ideias em soluções digitais bem estruturadas, unindo boas práticas de código HTML, CSS, JavaScript e arquitetura web.
+                    </p>
+
+                    <div class="pt-4 flex flex-wrap justify-center md:justify-start gap-4">
+                        <a href="contato.html" class="bg-grad-primary text-white font-semibold px-6 py-3 rounded-lg hover:opacity-90 transition-opacity">
+                            Entre em Contato
+                        </a>
+                        <a href="index.html#tecnologias" class="border border-custom bg-bg-card text-text-primary font-semibold px-6 py-3 rounded-lg hover:border-[#6c63ff] transition-colors">
+                            Ver Minhas Stacks
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DIFERENCIAIS / PILARES -->
+            <div class="space-y-8">
+                <div class="text-center max-w-2xl mx-auto">
+                    <h2 class="text-3xl font-bold tracking-tight">
+                        Como <span class="text-gradient">Trabalho</span>
+                    </h2>
+                    <p class="text-text-muted mt-2">Princípios fundamentais que aplicamos em cada linha de código.</p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Card 1 -->
+                    <div class="bg-bg-card border border-custom p-6 rounded-2xl shadow-lg space-y-3">
+                        <div class="w-12 h-12 rounded-lg bg-grad-primary flex items-center justify-center text-white text-2xl">
+                            ⚡
+                        </div>
+                        <h3 class="text-xl font-bold text-text-primary">Performance e Código Limpo</h3>
+                        <p class="text-text-muted text-sm leading-relaxed">
+                            Páginas otimizadas para carregamento rápido, estrutura semântica acessível e facilidade de manutenção.
+                        </p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-bg-card border border-custom p-6 rounded-2xl shadow-lg space-y-3">
+                        <div class="w-12 h-12 rounded-lg bg-grad-html flex items-center justify-center text-white text-2xl">
+                            📱
+                        </div>
+                        <h3 class="text-xl font-bold text-text-primary">Design Responsivo</h3>
+                        <p class="text-text-muted text-sm leading-relaxed">
+                            Garantia de visualização e navegação impecáveis em qualquer tamanho de tela: smartphones, tablets e desktops.
+                        </p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-bg-card border border-custom p-6 rounded-2xl shadow-lg space-y-3 sm:col-span-2 lg:col-span-1">
+                        <div class="w-12 h-12 rounded-lg bg-grad-python flex items-center justify-center text-slate-900 font-bold text-2xl">
+                            🛠️
+                        </div>
+                        <h3 class="text-xl font-bold text-text-primary">Resolução de Problemas</h3>
+                        <p class="text-text-muted text-sm leading-relaxed">
+                            Vivência técnica contínua para encontrar diagnósticos precisos e implementar as soluções mais eficazes.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-bg-2 border-t border-custom py-8 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-text-muted">
+            <div>
+                <p>&copy; 2026 aqgoes.com. Todos os direitos reservados.</p>
+                <p class="text-xs mt-1">Desenvolvido por AQGoes</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="index.html" class="hover:text-text-primary transition-colors">Página Inicial</a>
+                <a href="contato.html" class="hover:text-text-primary transition-colors">Contato</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS REUTILIZADOS -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+</html>
