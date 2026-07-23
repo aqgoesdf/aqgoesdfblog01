@@ -1,173 +1,199 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AqGoEs — Desenvolvimento Web</title>
-<meta name="description" content="AqGoEs — Full Stack developer. Mais de 20 anos de experiência técnica em TI, hoje construindo produtos web com HTML, CSS, JavaScript, Python e PHP/WordPress.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="asseds/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQGoes | Web Developer Full Stack</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="bg-bg text-text-primary font-sans antialiased scroll-smooth transition-colors duration-300">
 
-<header class="site-header">
-  <div class="nav-wrap">
-    <a href="index.html" class="logo">Aq<span>GoEs</span></a>
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 header-backdrop backdrop-blur-md border-b border-custom transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center relative">
+            
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-bold tracking-wider text-gradient z-20">AQGoes</a>
 
-    <nav class="nav-links" id="navLinks">
-      <a href="#sobre" class="active">Sobre</a>
-      <a href="#trajetoria">Trajetória</a>
-      <a href="#tecnologias">Tecnologias</a>
-      <a href="blog.html">Blog</a>
-    </nav>
+            <div class="flex items-center gap-2 z-20 md:hidden">
+                <!-- Botão Dark Mode (Mobile) -->
+                <button class="theme-toggle p-2 rounded-lg border border-custom text-text-primary hover:bg-bg-card transition-colors" aria-label="Alternar Tema">
+                    <span class="icon-moon text-lg">🌙</span>
+                    <span class="icon-sun text-lg hidden">☀️</span>
+                </button>
 
-    <div class="nav-actions">
-      <a class="btn btn-ghost" href="blog.html">Ver blog</a>
-      <a class="btn btn-primary" href="https://wa.me/5561999999999" target="_blank" rel="noopener">Fale conosco</a>
-      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-</header>
+                <!-- Botão Hambúrguer (Mobile) -->
+                <button id="menu-btn" aria-label="Abrir Menu" aria-expanded="false" class="text-text-primary hover:text-white focus:outline-none p-2">
+                    <svg id="icon-open" class="w-7 h-7 block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="icon-close" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
 
-<main>
+            <!-- Nav (Desktop + Mobile Dropdown) -->
+            <nav id="menu" class="hidden absolute top-full left-0 w-full menu-backdrop backdrop-blur-lg border-b border-custom p-6 flex-col space-y-4 md:static md:flex md:flex-row md:items-center md:space-y-0 md:space-x-8 md:w-auto md:bg-transparent md:border-none md:p-0 transition-all duration-300 z-10">
+                <a href="#sobre" class="nav-link hover:text-gradient transition-colors block py-2 md:py-0 font-medium">Sobre</a>
+                <a href="#trajetoria" class="nav-link hover:text-gradient transition-colors block py-2 md:py-0 font-medium">Trajetória</a>
+                <a href="#tecnologias" class="nav-link hover:text-gradient transition-colors block py-2 md:py-0 font-medium">Tecnologias</a>
+                
+                <div class="pt-4 md:pt-0 border-t border-custom md:border-none md:hidden">
+                    <a href="https://wa.me/seunumerodetelefone" target="_blank" class="block text-center bg-grad-primary text-white font-semibold px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
+                        Fale Comigo
+                    </a>
+                </div>
+            </nav>
 
-  <!-- HERO / SOBRE -->
-  <section class="hero" id="sobre">
-    <div class="container hero-grid">
-      <div>
-        <p class="hero-kicker">// full stack developer</p>
-        <h1 class="hero-title">Duas décadas de infraestrutura de TI.<br>Agora, <em>construindo para a web.</em></h1>
-        <p class="hero-text">
-          Sou AqGoEs, analista técnico do Senado Federal e desenvolvedor Full Stack em formação.
-          Depois de anos sustentando redes e atendimento técnico em ambiente corporativo, estou
-          migrando essa bagagem para o desenvolvimento de produtos web — do HTML ao WordPress.
-        </p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="#trajetoria">Ver trajetória</a>
-          <a class="btn btn-ghost" href="https://wa.me/5561999999999" target="_blank" rel="noopener">Falar no WhatsApp</a>
+            <!-- Ações Desktop (Fale Comigo + Dark Mode) -->
+            <div class="hidden md:flex items-center space-x-4">
+                <button class="theme-toggle p-2 rounded-lg border border-custom text-text-primary hover:bg-bg-card transition-colors cursor-pointer" aria-label="Alternar Tema">
+                    <span class="icon-moon text-lg">🌙</span>
+                    <span class="icon-sun text-lg hidden">☀️</span>
+                </button>
+                <a href="https://wa.me/seunumerodetelefone" target="_blank" class="bg-grad-primary text-white font-semibold px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
+                    Fale Comigo
+                </a>
+            </div>
+
         </div>
-      </div>
+    </header>
 
-      <div class="hero-console">
-        <div class="console-dots"><span></span><span></span><span></span></div>
-        <div class="console-line"><span class="prompt">$</span> whoami</div>
-        <div class="console-line val">aqgoes — analista técnico sênior</div>
-        <div class="console-line"><span class="prompt">$</span> cat experiencia.txt</div>
-        <div class="console-line val">20+ anos · Senado Federal</div>
-        <div class="console-line"><span class="prompt">$</span> status --formacao</div>
-        <div class="console-line val">cursando Full Stack Web Dev<span class="console-cursor"></span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TRAJETÓRIA -->
-  <section class="section" id="trajetoria">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">git log --trajetoria</p>
-        <h2 class="section-title">Minha trajetória profissional</h2>
-        <p class="section-sub">Mais de 20 anos atuando na área técnica do Senado Federal, evoluindo de suporte
-          nível 1 até a atuação como Analista Técnico Sênior.</p>
-      </div>
-
-      <ol class="timeline">
-        <li class="timeline-item">
-          <span class="commit-hash">a1f9c2</span>
-          <span class="timeline-period">Início de carreira</span>
-          <h3 class="timeline-role">Técnico de TI Terceirizado — Suporte Nível 1 e 2</h3>
-          <p class="timeline-desc">
-            Prestação de serviços terceirizados ao Senado Federal, atuando em atendimento a
-            usuários, suporte a redes e resolução de incidentes técnicos no dia a dia da Casa.
-          </p>
-        </li>
-
-        <li class="timeline-item">
-          <span class="commit-hash">c58d0e</span>
-          <span class="timeline-period">Evolução técnica</span>
-          <h3 class="timeline-role">Analista Técnico</h3>
-          <p class="timeline-desc">
-            Passagem para atuação mais analítica dentro da área técnica, com foco em
-            diagnóstico de rede, infraestrutura e suporte avançado.
-          </p>
-        </li>
-
-        <li class="timeline-item is-current">
-          <span class="commit-hash">HEAD</span>
-          <span class="timeline-period">Atualmente</span>
-          <h3 class="timeline-role">Analista Técnico Sênior — Comissões do Senado Federal</h3>
-          <p class="timeline-desc">
-            Prestação de serviços técnicos diretamente às comissões do Senado Federal, com
-            responsabilidade sobre atendimentos de maior complexidade.
-          </p>
-        </li>
-
-        <li class="timeline-item">
-          <span class="commit-hash">wip</span>
-          <span class="timeline-period">Em andamento</span>
-          <h3 class="timeline-role">Graduação em Desenvolvimento Web Full Stack</h3>
-          <p class="timeline-desc">
-            Formação acadêmica em andamento na área de desenvolvimento web, unindo a bagagem
-            técnica de infraestrutura à construção de produtos digitais completos.
-          </p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- TECNOLOGIAS -->
-  <section class="section" id="tecnologias">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">stack principal</p>
-        <h2 class="section-title">Principais tecnologias</h2>
-        <p class="section-sub">As quatro frentes onde concentro meus estudos e minha prática de desenvolvimento web.</p>
-      </div>
-
-      <div class="tech-grid">
-        <div class="tech-card">
-          <div class="tech-glyph">&lt;/&gt;</div>
-          <div class="tech-name">HTML &amp; CSS</div>
-          <p class="tech-note">Estrutura semântica e interfaces responsivas, base de todo projeto.</p>
+    <!-- SEÇÃO 1: HERO (SOBRE) -->
+    <section id="sobre" class="relative py-20 md:py-32 bg-grad-hero transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-12 gap-8 items-center">
+            <div class="md:col-span-7 space-y-6">
+                <span class="text-gradient font-bold tracking-wider uppercase text-sm block">Desenvolvedor Web Full Stack</span>
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
+                    Construindo soluções web <br><span class="text-gradient">robustas e modernas</span>.
+                </h1>
+                <p class="text-text-muted text-lg leading-relaxed">
+                    Olá! Sou o especialista por trás da <strong>AQGoes</strong>. Sou desenvolvedor Full Stack focado em criar aplicações modernas, funcionais e otimizadas. Unindo uma sólida experiência em suporte e análise técnica no setor público com o estudo constante das tecnologias mais demandadas do mercado, transformo ideias em código de alto desempenho.
+                </p>
+                <div class="pt-4 flex flex-wrap gap-4">
+                    <a href="#trajetoria" class="border border-custom hover:border-[#6c63ff] px-6 py-3 rounded-lg font-medium transition-all">
+                        Conhecer Trajetória
+                    </a>
+                </div>
+            </div>
+            <div class="md:col-span-5 flex justify-center">
+                <div class="w-72 h-72 rounded-full bg-grad-primary p-1 shadow-2xl">
+                    <div class="w-full h-full bg-bg rounded-full flex flex-col items-center justify-center text-center p-6 transition-colors duration-300">
+                        <span class="text-5xl mb-2">💻</span>
+                        <span class="font-bold text-xl text-text-primary">AQGoes</span>
+                        <span class="text-sm text-text-muted">Brasília - DF</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="tech-card">
-          <div class="tech-glyph">{ }</div>
-          <div class="tech-name">JavaScript</div>
-          <p class="tech-note">Interatividade e lógica no navegador, do DOM a integrações com APIs.</p>
-        </div>
-        <div class="tech-card">
-          <div class="tech-glyph">py</div>
-          <div class="tech-name">Python</div>
-          <p class="tech-note">Automação e lógica de back-end aplicada a problemas do dia a dia.</p>
-        </div>
-        <div class="tech-card">
-          <div class="tech-glyph">wp</div>
-          <div class="tech-name">PHP / WordPress</div>
-          <p class="tech-note">Foco atual de estudo: PHP aplicado à criação de temas para WordPress.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-</main>
+    <!-- SEÇÃO 2: TRAJETÓRIA -->
+    <section id="trajetoria" class="bg-bg-2 py-20 border-y border-custom transition-colors duration-300">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gradient">Experiência &amp; Trajetória</h2>
+                <p class="text-text-muted mt-2">Sólida carreira construída com suporte e análise de TI no Senado Federal.</p>
+            </div>
 
-<footer class="site-footer">
-  <div class="container footer-wrap">
-    <div class="social-links">
-      <a href="#" target="_blank" rel="noopener">GitHub</a>
-      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://wa.me/5561999999999" target="_blank" rel="noopener">WhatsApp</a>
-    </div>
-    <p class="copyright">© <span id="year"></span> AqGoEs. Todos os direitos reservados.</p>
-  </div>
-</footer>
+            <!-- TIMELINE -->
+            <div class="relative border-l border-custom ml-4 md:ml-6 space-y-10">
+                <div class="relative pl-8">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-[#ff6584] border-4 border-bg-2"></div>
+                    <span class="text-sm text-[#ff6584] font-semibold">Momento Atual</span>
+                    <h3 class="text-xl font-bold mt-1 text-text-primary">Analista Técnico Sênior (Terceirizado)</h3>
+                    <h4 class="text-text-muted text-sm">Comissões do Senado Federal</h4>
+                    <p class="text-text-muted mt-2 text-sm leading-relaxed">
+                        Atuação estratégica de suporte e análise técnica diretamente nas comissões do Senado Federal, garantindo estabilidade, segurança e eficiência no fluxo tecnológico de processos legislativos críticos.
+                    </p>
+                </div>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-<script src="script.js"></script>
+                <div class="relative pl-8">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-[#6c63ff] border-4 border-bg-2"></div>
+                    <span class="text-sm text-[#6c63ff] font-semibold">Etapa Anterior</span>
+                    <h3 class="text-xl font-bold mt-1 text-text-primary">Técnico Nível 1 &amp; Nível 2 (Terceirizado)</h3>
+                    <h4 class="text-text-muted text-sm">Senado Federal</h4>
+                    <p class="text-text-muted mt-2 text-sm leading-relaxed">
+                        Atuação na linha de frente do suporte de TI, solucionando incidentes complexos de infraestrutura e sistemas, além de garantir a continuidade operacional das atividades parlamentares.
+                    </p>
+                </div>
+
+                <div class="relative pl-8">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-[#ffa94d] border-4 border-bg-2"></div>
+                    <span class="text-sm text-[#ffa94d] font-semibold">Formação &amp; Autonomia</span>
+                    <h3 class="text-xl font-bold mt-1 text-text-primary">Estudos por Conta própria &amp; Ensino Superior</h3>
+                    <h4 class="text-text-muted text-sm">Graduação Full Stack</h4>
+                    <p class="text-text-muted mt-2 text-sm leading-relaxed">
+                        Unindo a disciplina dos estudos autodidatas com uma formação superior estruturada em Desenvolvimento Full Stack. Dedicação diária ao aprendizado prático de arquitetura de software e engenharia web (Python, HTML, CSS, JS e WordPress).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 3: TECNOLOGIAS -->
+    <section id="tecnologias" class="py-20 max-w-6xl mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gradient">Tecnologias &amp; Especialidades</h2>
+            <p class="text-text-muted mt-2">O conjunto de ferramentas que utilizo para criar soluções completas.</p>
+        </div>
+
+        <div class="grid md:grid-cols-4 gap-6">
+            <div class="bg-bg-card p-6 rounded-xl border border-custom hover:scale-[1.02] transition-all shadow-sm">
+                <div class="w-12 h-12 rounded-lg bg-grad-html flex items-center justify-center text-white font-extrabold text-lg mb-4 shadow-lg">HTML</div>
+                <h3 class="text-lg font-bold mb-1 text-text-primary">Estrutura Web</h3>
+                <p class="text-text-muted text-xs leading-relaxed">Desenvolvimento de marcação semântica focada em acessibilidade e SEO.</p>
+            </div>
+
+            <div class="bg-bg-card p-6 rounded-xl border border-custom hover:scale-[1.02] transition-all shadow-sm">
+                <div class="w-12 h-12 rounded-lg bg-grad-css flex items-center justify-center text-white font-extrabold text-lg mb-4 shadow-lg">CSS</div>
+                <h3 class="text-lg font-bold mb-1 text-text-primary">Estilização</h3>
+                <p class="text-text-muted text-xs leading-relaxed">Layouts responsivos, animações fluidas e design moderno sob medida.</p>
+            </div>
+
+            <div class="bg-bg-card p-6 rounded-xl border border-custom hover:scale-[1.02] transition-all shadow-sm">
+                <div class="w-12 h-12 rounded-lg bg-grad-js flex items-center justify-center text-slate-900 font-extrabold text-lg mb-4 shadow-lg">JS</div>
+                <h3 class="text-lg font-bold mb-1 text-text-primary">Interatividade</h3>
+                <p class="text-text-muted text-xs leading-relaxed">Comportamentos dinâmicos, consumo de APIs e lógica client-side.</p>
+            </div>
+
+            <div class="bg-bg-card p-6 rounded-xl border border-custom hover:scale-[1.02] transition-all shadow-sm">
+                <div class="w-12 h-12 rounded-lg bg-grad-python flex items-center justify-center text-slate-900 font-extrabold text-lg mb-4 shadow-lg">PY</div>
+                <h3 class="text-lg font-bold mb-1 text-text-primary">Back-End &amp; Lógica</h3>
+                <p class="text-text-muted text-xs leading-relaxed">Desenvolvimento focado em lógica, scripts de automação e APIs robustas.</p>
+            </div>
+        </div>
+
+        <div class="mt-12 bg-bg-card border border-custom p-8 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 transition-colors duration-300">
+            <div>
+                <h3 class="text-xl font-bold text-text-primary">Projetos Rápidos &amp; Landing Pages com WordPress</h3>
+                <p class="text-text-muted text-sm mt-1">Criação de sites institucionais inteligentes e editáveis com a potência do WordPress de forma ágil.</p>
+            </div>
+            <a href="https://wa.me/seunumerodetelefone" target="_blank" class="bg-grad-primary text-white font-semibold px-6 py-3 rounded-lg hover:opacity-90 transition-opacity whitespace-nowrap">
+                Solicitar Orçamento
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-bg-2 border-t border-custom py-8 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-text-muted">
+            <div>
+                <p>&copy; 2026 aqgoes.com. Todos os direitos reservados.</p>
+                <p class="text-xs mt-1">Desenvolvido por AQGoes</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#sobre" class="hover:text-text-primary transition-colors">Voltar ao topo</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/theme.js"></script>
 </body>
 </html>
