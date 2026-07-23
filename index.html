@@ -1,311 +1,173 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AqGoEs – Notícias de Tecnologia</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AqGoEs — Desenvolvimento Web</title>
+<meta name="description" content="AqGoEs — Full Stack developer. Mais de 20 anos de experiência técnica em TI, hoje construindo produtos web com HTML, CSS, JavaScript, Python e PHP/WordPress.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="asseds/css/style.css">
 </head>
 <body>
 
-  <!-- ========== HEADER / NAV ========== -->
-  <header class="header" id="header">
-    <nav class="nav container">
-      <a href="index.html" class="nav__logo">Aq<span>GoEs</span></a>
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="logo">Aq<span>GoEs</span></a>
 
-      <ul class="nav__menu" id="navMenu">
-        <li><a href="index.html" class="nav__link active">Home</a></li>
-        <li><a href="artigos.html" class="nav__link">Artigos</a></li>
-        <li><a href="sobre.html" class="nav__link">Sobre</a></li>
-        <li><a href="contato.html" class="nav__link">Contato</a></li>
-      </ul>
+    <nav class="nav-links" id="navLinks">
+      <a href="#sobre" class="active">Sobre</a>
+      <a href="#trajetoria">Trajetória</a>
+      <a href="#tecnologias">Tecnologias</a>
+      <a href="blog.html">Blog</a>
+    </nav>
 
-      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+    <div class="nav-actions">
+      <a class="btn btn-ghost" href="blog.html">Ver blog</a>
+      <a class="btn btn-primary" href="https://wa.me/5561999999999" target="_blank" rel="noopener">Fale conosco</a>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
-    </nav>
-  </header>
+    </div>
+  </div>
+</header>
 
-  <main>
+<main>
 
-    <!-- ========== SEÇÃO 1: HERO ========== -->
-    <section class="hero" id="hero">
-      <div class="hero__bg"></div>
-      <div class="container hero__content">
-        <div class="hero__text">
-          <span class="hero__tag">🚀 Tecnologia em tempo real</span>
-          <h1 class="hero__title">
-            O futuro da<br />
-            <em>tecnologia</em><br />
-            começa aqui.
-          </h1>
-          <p class="hero__desc">
-            HTML, CSS, JavaScript e Python — conteúdo profundo
-            para devs que querem ir além do básico.
+  <!-- HERO / SOBRE -->
+  <section class="hero" id="sobre">
+    <div class="container hero-grid">
+      <div>
+        <p class="hero-kicker">// full stack developer</p>
+        <h1 class="hero-title">Duas décadas de infraestrutura de TI.<br>Agora, <em>construindo para a web.</em></h1>
+        <p class="hero-text">
+          Sou AqGoEs, analista técnico do Senado Federal e desenvolvedor Full Stack em formação.
+          Depois de anos sustentando redes e atendimento técnico em ambiente corporativo, estou
+          migrando essa bagagem para o desenvolvimento de produtos web — do HTML ao WordPress.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#trajetoria">Ver trajetória</a>
+          <a class="btn btn-ghost" href="https://wa.me/5561999999999" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="hero-console">
+        <div class="console-dots"><span></span><span></span><span></span></div>
+        <div class="console-line"><span class="prompt">$</span> whoami</div>
+        <div class="console-line val">aqgoes — analista técnico sênior</div>
+        <div class="console-line"><span class="prompt">$</span> cat experiencia.txt</div>
+        <div class="console-line val">20+ anos · Senado Federal</div>
+        <div class="console-line"><span class="prompt">$</span> status --formacao</div>
+        <div class="console-line val">cursando Full Stack Web Dev<span class="console-cursor"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAJETÓRIA -->
+  <section class="section" id="trajetoria">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">git log --trajetoria</p>
+        <h2 class="section-title">Minha trajetória profissional</h2>
+        <p class="section-sub">Mais de 20 anos atuando na área técnica do Senado Federal, evoluindo de suporte
+          nível 1 até a atuação como Analista Técnico Sênior.</p>
+      </div>
+
+      <ol class="timeline">
+        <li class="timeline-item">
+          <span class="commit-hash">a1f9c2</span>
+          <span class="timeline-period">Início de carreira</span>
+          <h3 class="timeline-role">Técnico de TI Terceirizado — Suporte Nível 1 e 2</h3>
+          <p class="timeline-desc">
+            Prestação de serviços terceirizados ao Senado Federal, atuando em atendimento a
+            usuários, suporte a redes e resolução de incidentes técnicos no dia a dia da Casa.
           </p>
-          <div class="hero__actions">
-            <a href="artigos.html" class="btn btn--primary">Ver Artigos</a>
-            <a href="sobre.html" class="btn btn--ghost">Sobre o projeto</a>
-          </div>
-        </div>
+        </li>
 
-        <div class="hero__card-stack">
-          <!-- Cards decorativos representando categorias -->
-          <article class="hero__card hero__card--1">
-            <span class="card__icon">🌐</span>
-            <h3>HTML & CSS</h3>
-            <p>Estrutura e estilo modernos</p>
-          </article>
-          <article class="hero__card hero__card--2">
-            <span class="card__icon">⚡</span>
-            <h3>JavaScript</h3>
-            <p>Interatividade e DOM</p>
-          </article>
-          <article class="hero__card hero__card--3">
-            <span class="card__icon">🐍</span>
-            <h3>Python</h3>
-            <p>Back-end para a web</p>
-          </article>
-        </div>
+        <li class="timeline-item">
+          <span class="commit-hash">c58d0e</span>
+          <span class="timeline-period">Evolução técnica</span>
+          <h3 class="timeline-role">Analista Técnico</h3>
+          <p class="timeline-desc">
+            Passagem para atuação mais analítica dentro da área técnica, com foco em
+            diagnóstico de rede, infraestrutura e suporte avançado.
+          </p>
+        </li>
+
+        <li class="timeline-item is-current">
+          <span class="commit-hash">HEAD</span>
+          <span class="timeline-period">Atualmente</span>
+          <h3 class="timeline-role">Analista Técnico Sênior — Comissões do Senado Federal</h3>
+          <p class="timeline-desc">
+            Prestação de serviços técnicos diretamente às comissões do Senado Federal, com
+            responsabilidade sobre atendimentos de maior complexidade.
+          </p>
+        </li>
+
+        <li class="timeline-item">
+          <span class="commit-hash">wip</span>
+          <span class="timeline-period">Em andamento</span>
+          <h3 class="timeline-role">Graduação em Desenvolvimento Web Full Stack</h3>
+          <p class="timeline-desc">
+            Formação acadêmica em andamento na área de desenvolvimento web, unindo a bagagem
+            técnica de infraestrutura à construção de produtos digitais completos.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- TECNOLOGIAS -->
+  <section class="section" id="tecnologias">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">stack principal</p>
+        <h2 class="section-title">Principais tecnologias</h2>
+        <p class="section-sub">As quatro frentes onde concentro meus estudos e minha prática de desenvolvimento web.</p>
       </div>
 
-      <!-- Scroll indicator -->
-      <div class="hero__scroll">
-        <span>scroll</span>
-        <div class="hero__scroll-line"></div>
-      </div>
-    </section>
-
-    <!-- ========== SEÇÃO 2: ÚLTIMAS NOTÍCIAS ========== -->
-    <section class="news" id="noticias">
-      <div class="container">
-        <div class="section__header">
-          <h2 class="section__title">Últimas <span>Notícias</span></h2>
-          <a href="artigos.html" class="section__link">Ver todas →</a>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-glyph">&lt;/&gt;</div>
+          <div class="tech-name">HTML &amp; CSS</div>
+          <p class="tech-note">Estrutura semântica e interfaces responsivas, base de todo projeto.</p>
         </div>
-
-        <div class="news__grid">
-
-          <!-- Card em Destaque (Adicionada a classe modificadora se aplicável ao seu CSS) -->
-          <article class="news__card news__card--featured">
-            <div class="news__card-img">
-              <div class="news__card-placeholder" data-category="JavaScript"></div>
-              <span class="news__badge">Em Alta</span>
-            </div>
-            <div class="news__card-body">
-              <span class="news__category">JavaScript</span>
-              <h3 class="news__title">
-                <a href="#">O que muda no ECMAScript 2025: novidades que vão transformar seu código</a>
-              </h3>
-              <p class="news__excerpt">
-                Decorators nativos, novos métodos de Array e melhorias no sistema de módulos. Veja o que está chegando.
-              </p>
-              <div class="news__meta">
-                <span class="news__author">👤 Ana Dev</span>
-                <span class="news__date">📅 Fev 2025</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Cards normais -->
-          <article class="news__card">
-            <div class="news__card-img">
-              <div class="news__card-placeholder" data-category="CSS"></div>
-            </div>
-            <div class="news__card-body">
-              <span class="news__category">CSS</span>
-              <h3 class="news__title">
-                <a href="#">CSS Container Queries: layouts verdadeiramente responsivos</a>
-              </h3>
-              <div class="news__meta">
-                <span class="news__author">👤 Carlos UI</span>
-                <span class="news__date">📅 Jan 2025</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="news__card">
-            <div class="news__card-img">
-              <div class="news__card-placeholder" data-category="Python"></div>
-            </div>
-            <div class="news__card-body">
-              <span class="news__category">Python</span>
-              <h3 class="news__title">
-                <a href="#">FastAPI vs Django: qual escolher para sua API REST em 2025?</a>
-              </h3>
-              <div class="news__meta">
-                <span class="news__author">👤 Bia Backend</span>
-                <span class="news__date">📅 Jan 2025</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="news__card">
-            <div class="news__card-img">
-              <div class="news__card-placeholder" data-category="HTML"></div>
-            </div>
-            <div class="news__card-body">
-              <span class="news__category">HTML</span>
-              <h3 class="news__title">
-                <a href="#">Semântica HTML5: guia completo para acessibilidade e SEO</a>
-              </h3>
-              <div class="news__meta">
-                <span class="news__author">👤 Diego Full</span>
-                <span class="news__date">📅 Dez 2024</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="news__card">
-            <div class="news__card-img">
-              <div class="news__card-placeholder" data-category="Python"></div>
-            </div>
-            <div class="news__card-body">
-              <span class="news__category">Python</span>
-              <h3 class="news__title">
-                <a href="#">FastAPI vs Django: qual escolher para sua API REST em 2025?</a>
-              </h3>
-              <div class="news__meta">
-                <span class="news__author">👤 Bia Backend</span>
-                <span class="news__date">📅 Jan 2025</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="news__card">
-            <div class="news__card-img">
-              <div class="news__card-placeholder" data-category="HTML"></div>
-            </div>
-            <div class="news__card-body">
-              <span class="news__category">HTML</span>
-              <h3 class="news__title">
-                <a href="#">Semântica HTML5: guia completo para acessibilidade e SEO</a>
-              </h3>
-              <div class="news__meta">
-                <span class="news__author">👤 Diego Full</span>
-                <span class="news__date">📅 Dez 2024</span>
-              </div>
-            </div>
-          </article>
-
+        <div class="tech-card">
+          <div class="tech-glyph">{ }</div>
+          <div class="tech-name">JavaScript</div>
+          <p class="tech-note">Interatividade e lógica no navegador, do DOM a integrações com APIs.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- ========== SEÇÃO 3: CATEGORIAS ========== -->
-    <section class="categories" id="categorias">
-      <div class="container">
-        <div class="section__header">
-          <h2 class="section__title">Explore por <span>Categoria</span></h2>
+        <div class="tech-card">
+          <div class="tech-glyph">py</div>
+          <div class="tech-name">Python</div>
+          <p class="tech-note">Automação e lógica de back-end aplicada a problemas do dia a dia.</p>
         </div>
-
-        <div class="categories__grid">
-          <a href="artigos.html?cat=html" class="category__card category__card--html">
-            <div class="category__icon">🌐</div>
-            <h3>HTML</h3>
-            <p>Semântica, acessibilidade e estrutura moderna</p>
-            <span class="category__count">12 artigos</span>
-          </a>
-
-          <a href="artigos.html?cat=css" class="category__card category__card--css">
-            <div class="category__icon">🎨</div>
-            <h3>CSS</h3>
-            <p>Layouts, animações e design systems</p>
-            <span class="category__count">18 artigos</span>
-          </a>
-
-          <a href="artigos.html?cat=js" class="category__card category__card--js">
-            <div class="category__icon">⚡</div>
-            <h3>JavaScript</h3>
-            <p>ES2025, APIs modernas e performance</p>
-            <span class="category__count">24 artigos</span>
-          </a>
-
-          <a href="artigos.html?cat=python" class="category__card category__card--python">
-            <div class="category__icon">🐍</div>
-            <h3>Python</h3>
-            <p>Web scraping, APIs e automação</p>
-            <span class="category__count">15 artigos</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== SEÇÃO 4: NEWSLETTER ========== -->
-    <section class="newsletter" id="newsletter">
-      <div class="container">
-        <div class="newsletter__content">
-          <span class="newsletter__tag">📬 Newsletter semanal</span>
-          <h2>Fique por dentro de tudo</h2>
-          <p>Receba os melhores artigos de tecnologia diretamente no seu e-mail, toda semana.</p>
-
-          <form class="newsletter__form" id="newsletterForm">
-            <div class="newsletter__input-group">
-              <input
-                type="email"
-                id="newsletterEmail"
-                name="email"
-                placeholder="seu@email.com"
-                required
-                autocomplete="email"
-              />
-              <button type="submit" class="btn btn--primary">Inscrever</button>
-            </div>
-            <p class="newsletter__privacy">🔒 Sem spam. Cancele quando quiser.</p>
-            <div class="newsletter__feedback" id="newsletterFeedback" aria-live="polite"></div>
-          </form>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ========== FOOTER ========== -->
-  <footer class="footer">
-    <div class="container footer__grid">
-      <div class="footer__brand">
-        <a href="index.html" class="nav__logo">Aq<span>GoEs</span></a>
-        <p>Conteúdo técnico de qualidade para desenvolvedores web.</p>
-      </div>
-
-      <nav class="footer__nav" aria-label="Links do rodapé">
-        <h4>Páginas</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="artigos.html">Artigos</a></li>
-          <li><a href="sobre.html">Sobre</a></li>
-          <li><a href="contato.html">Contato</a></li>
-        </ul>
-      </nav>
-
-      <nav class="footer__nav" aria-label="Categorias">
-        <h4>Categorias</h4>
-        <ul>
-          <li><a href="#">HTML</a></li>
-          <li><a href="#">CSS</a></li>
-          <li><a href="#">JavaScript</a></li>
-          <li><a href="#">Python</a></li>
-        </ul>
-      </nav>
-
-      <div class="footer__social">
-        <h4>Redes</h4>
-        <div class="social__links">
-          <a href="#" aria-label="GitHub">GH</a>
-          <a href="#" aria-label="Twitter">TW</a>
-          <a href="#" aria-label="LinkedIn">LN</a>
+        <div class="tech-card">
+          <div class="tech-glyph">wp</div>
+          <div class="tech-name">PHP / WordPress</div>
+          <p class="tech-note">Foco atual de estudo: PHP aplicado à criação de temas para WordPress.</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="footer__bottom container">
-      <!-- Corrigido de TechPulse para AqGoEs -->
-      <p>© 2025 AqGoEs. Feito com ❤️ para devs.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-wrap">
+    <div class="social-links">
+      <a href="#" target="_blank" rel="noopener">GitHub</a>
+      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://wa.me/5561999999999" target="_blank" rel="noopener">WhatsApp</a>
     </div>
-  </footer>
+    <p class="copyright">© <span id="year"></span> AqGoEs. Todos os direitos reservados.</p>
+  </div>
+</footer>
 
-  <script src="js/main.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="script.js"></script>
 </body>
 </html>

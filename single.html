@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entendendo closures em JavaScript na prática — AqGoEs</title>
+<meta name="description" content="Como o escopo léxico e as closures resolvem problemas reais de estado em funções JavaScript.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="asseds/css/style.css">
+<style>
+  .reading-progress {
+    position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+    background: var(--accent); z-index: 200; transition: width .1s linear;
+  }
+</style>
+</head>
+<body class="theme-light">
+
+<div class="reading-progress"></div>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="logo">Aq<span>GoEs</span></a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="index.html#sobre">Sobre</a>
+      <a href="blog.html">Artigos</a>
+      <a href="blog.html#contato-blog">Contato</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn btn-primary" href="https://wa.me/5561999999999" target="_blank" rel="noopener">Fale conosco</a>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="article-hero">
+    <div class="container">
+      <span class="cat-tag">JavaScript</span>
+      <h1>Entendendo closures em JavaScript na prática</h1>
+
+      <div class="article-meta-row">
+        <span class="avatar">AG</span>
+        <span class="author-name">AqGoEs</span>
+        <span>·</span>
+        <span>12 de julho de 2026</span>
+        <span>·</span>
+        <span>6 min de leitura</span>
+      </div>
+    </div>
+  </section>
+
+  <article class="article-content">
+    <p>
+      Closures são um dos conceitos que mais geram confusão em quem está começando com JavaScript —
+      e, ao mesmo tempo, um dos que mais aparecem no dia a dia sem que a gente perceba. Neste artigo,
+      quero desmontar o conceito com exemplos simples, do jeito que gostaria de ter aprendido quando
+      comecei a migrar da área técnica para o desenvolvimento web.
+    </p>
+
+    <h2>O que é uma closure, na prática</h2>
+    <p>
+      Uma closure acontece quando uma função "lembra" do ambiente em que foi criada, mesmo depois que
+      esse ambiente já deveria ter deixado de existir. Isso é possível porque o JavaScript usa escopo
+      léxico: uma função sempre tem acesso às variáveis do escopo onde foi definida.
+    </p>
+
+    <div class="code-block">
+      <div class="code-head"><span>contador.js</span><span>JavaScript</span></div>
+      <pre><code><span class="tok-kw">function</span> <span class="tok-fn">criarContador</span>() {
+  <span class="tok-kw">let</span> <span class="tok-var">total</span> = <span class="tok-str">0</span>;
+
+  <span class="tok-kw">return</span> <span class="tok-kw">function</span>() {
+    total++;
+    <span class="tok-var">console</span>.<span class="tok-fn">log</span>(<span class="tok-str">`Total: ${total}`</span>);
+  };
+}
+
+<span class="tok-kw">const</span> <span class="tok-var">contador</span> = <span class="tok-fn">criarContador</span>();
+contador(); <span class="tok-com">// Total: 1</span>
+contador(); <span class="tok-com">// Total: 2</span></code></pre>
+    </div>
+
+    <p>
+      Repare que a variável <code>total</code> não é global e não é recriada a cada chamada — ela vive
+      dentro da closure retornada por <code>criarContador</code>. Isso é exatamente o que permite manter
+      um estado privado sem recorrer a variáveis globais.
+    </p>
+
+    <h3>Onde isso aparece no dia a dia</h3>
+    <ul>
+      <li>Em funções de callback que precisam lembrar de um valor específico.</li>
+      <li>Em event listeners que carregam contexto de quando foram criados.</li>
+      <li>Em padrões de módulo, antes da chegada do ES Modules.</li>
+    </ul>
+
+    <blockquote>
+      Entender closures não é decorar a definição — é reconhecer o padrão quando ele aparece
+      disfarçado de função dentro de função.
+    </blockquote>
+
+    <h2>Um erro comum: closures dentro de loops</h2>
+    <p>
+      Um erro clássico é criar closures dentro de um loop usando <code>var</code>, esperando que cada
+      função "lembre" do valor da iteração em que foi criada. Como <code>var</code> não tem escopo de
+      bloco, todas as funções acabam compartilhando a mesma variável.
+    </p>
+
+    <ol>
+      <li>Troque <code>var</code> por <code>let</code> para obter escopo de bloco.</li>
+      <li>Ou envolva a lógica em uma função separada que receba o valor como parâmetro.</li>
+    </ol>
+
+    <p>
+      Depois de anos resolvendo problemas de rede e suporte técnico, achei curioso perceber que
+      closures resolvem, no fundo, o mesmo tipo de problema que eu via em sistemas distribuídos:
+      manter estado isolado e previsível. A lógica muda de contexto, mas o raciocínio se repete.
+    </p>
+  </article>
+
+  <section class="related">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">continue lendo</p>
+        <h2 class="section-title">Artigos relacionados</h2>
+      </div>
+
+      <div class="article-grid">
+        <article class="article-card">
+          <div class="article-thumb" style="background: linear-gradient(135deg, #06B6D4, #67E8F9);">
+            <span class="cat-tag">CSS</span>
+          </div>
+          <div class="article-body">
+            <p class="article-meta">28 jun 2026 · 5 min de leitura</p>
+            <h2 class="article-title">Temas claro e escuro com CSS Custom Properties</h2>
+            <p class="article-excerpt">O padrão que uso neste site para alternar entre tema escuro e claro
+              sem duplicar CSS.</p>
+            <a class="article-link" href="single.html">Ler artigo →</a>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-thumb" style="background: linear-gradient(135deg, #F59E0B, #FDE68A);">
+            <span class="cat-tag">Python</span>
+          </div>
+          <div class="article-body">
+            <p class="article-meta">14 jun 2026 · 8 min de leitura</p>
+            <h2 class="article-title">Automatizando tarefas de TI com Python</h2>
+            <p class="article-excerpt">Scripts simples que usei para automatizar rotinas de suporte técnico.</p>
+            <a class="article-link" href="single.html">Ler artigo →</a>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-thumb" style="background: linear-gradient(135deg, #8B5CF6, #C4B5FD);">
+            <span class="cat-tag">Carreira</span>
+          </div>
+          <div class="article-body">
+            <p class="article-meta">05 mai 2026 · 6 min de leitura</p>
+            <h2 class="article-title">De técnico de redes a desenvolvedor Full Stack</h2>
+            <p class="article-excerpt">Como 20 anos de suporte técnico me prepararam para migrar de carreira.</p>
+            <a class="article-link" href="single.html">Ler artigo →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-wrap">
+    <div class="social-links">
+      <a href="#" target="_blank" rel="noopener">GitHub</a>
+      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://wa.me/5561999999999" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <p class="copyright">© <span id="year"></span> AqGoEs. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="script.js"></script>
+</body>
+</html>
