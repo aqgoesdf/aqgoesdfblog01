@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BlOg· AqGoEs</title>
+  <title>Dominando Manipulação do DOM com JavaScript · AqGoEs</title>
   <link rel="stylesheet" href="assets/css/blog_style.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
@@ -22,7 +22,7 @@
     }
   </script>
 </head>
-<body>
+<body class="font-body min-h-screen flex flex-col justify-between" style="background:var(--bg);color:var(--text);">
 
 <!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
 <header class="sticky top-0 z-50">
@@ -32,13 +32,8 @@
       AqGoEs
     </a>
     <nav class="hidden md:flex items-center gap-6">
-   <a href="blog.html">Início</a>
+      <a href="blog.html">Início</a>
       <a href="sobre.html">Sobre</a>
-
-      <!--<a href="#">JS</a>
-      <a href="#">Python</a>
-      <a href="#">Bibliotecas</a>-->
-      
       <a href="index.html">PortFolio</a>
       <a href="blog.html" class="active" style="color:#c8392b;">Blog</a>
       <a href="contato.html">Contato</a>
@@ -69,7 +64,135 @@
   </div>
 </header>
 
-<h1>Corpo dos Artigos</h1>
+<!-- ═══════════════════════════ CONTEÚDO DO POST ═══════════════════════════ -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 py-10 flex-1 w-full">
+
+  <!-- CABEÇALHO DO ARTIGO -->
+  <header class="max-w-4xl mx-auto mb-10 text-center border-b pb-8" style="border-color:var(--border);">
+    <span class="inline-block px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-md mb-4 text-white" style="background:#c8392b;">
+      JavaScript
+    </span>
+    <h1 class="font-display text-3xl sm:text-5xl font-extrabold mb-4 leading-tight" style="color:var(--text);">
+      Como Manipular o DOM com Eficiência e Performance no JavaScript
+    </h1>
+    <div class="flex items-center justify-center gap-4 text-xs sm:text-sm font-medium" style="color:var(--muted);">
+      <span>Por <strong>AqGoEs</strong></span>
+      <span>•</span>
+      <span>24 de Julho, 2026</span>
+      <span>•</span>
+      <span>⏱️ 5 min de leitura</span>
+    </div>
+  </header>
+
+  <!-- ESTRUTURA PRINCIPAL (ARTIGO + SIDEBAR) -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+
+    <!-- ÁREA DO TEXTO PRINCIPAL (8 COLUNAS) -->
+    <article class="lg:col-span-8 space-y-6 text-base leading-relaxed" style="color:var(--text);">
+      <p>
+        A manipulação do Document Object Model (DOM) é uma das habilidades mais fundamentais para qualquer desenvolvedor front-end. Através do JavaScript Vanilla, conseguimos escutar eventos, alterar o HTML dinamicamente e criar experiências altamente interativas sem depender de grandes frameworks.
+      </p>
+
+      <h2 class="font-display font-bold text-2xl sm:text-3xl pt-4" style="color:var(--text);border-bottom:1px solid var(--border);padding-bottom:0.5rem;">
+        1. Selecionando Elementos Corretamente
+      </h2>
+      <p>
+        Utilize metódos modernos como <code class="font-mono text-xs px-1.5 py-0.5 rounded" style="background:var(--surface);border:1px solid var(--border);color:#c8392b;">querySelector</code> e <code class="font-mono text-xs px-1.5 py-0.5 rounded" style="background:var(--surface);border:1px solid var(--border);color:#c8392b;">querySelectorAll</code> para garantir seleções mais flexíveis através de seletores CSS.
+      </p>
+
+      <!-- BLOCO DE CÓDIGO (SYNTAX HIGHLIGHTING VISUAL) -->
+      <div class="rounded-lg p-4 font-mono text-xs sm:text-sm overflow-x-auto my-6" style="background:var(--surface);border:1px solid var(--border);">
+        <div class="text-xs mb-2 pb-2 border-b flex justify-between" style="border-color:var(--border);color:var(--muted);">
+          <span>script.js</span>
+          <span>JavaScript</span>
+        </div>
+        <pre><code style="color:var(--text);"><span style="color:#c8392b;">const</span> menuBtn = document.<span style="color:#3178c6;">querySelector</span>(<span style="color:#4ec9b0;">'#menu-btn'</span>);
+<span style="color:#c8392b;">const</span> navMenu = document.<span style="color:#3178c6;">querySelector</span>(<span style="color:#4ec9b0;">'#mobile-menu'</span>);
+
+menuBtn.<span style="color:#3178c6;">addEventListener</span>(<span style="color:#4ec9b0;">'click'</span>, () => {
+  navMenu.classList.<span style="color:#3178c6;">toggle</span>(<span style="color:#4ec9b0;">'open'</span>);
+});</code></pre>
+      </div>
+
+      <h3 class="font-display font-bold text-xl sm:text-2xl pt-2" style="color:var(--text);">
+        Evitando Regravações Desnecessárias (Reflow)
+      </h3>
+      <p>
+        Sempre que alteramos a árvore do DOM diretamente em um loop, forçamos o navegador a recalcular o layout da página. Para otimizar a performance, prefira utilizar o <code class="font-mono text-xs px-1.5 py-0.5 rounded" style="background:var(--surface);border:1px solid var(--border);color:#c8392b;">DocumentFragment</code>.
+      </p>
+
+      <!-- CITAÇÃO DE DESTAQUE -->
+      <blockquote class="my-6 p-4 rounded-r-lg border-l-4 italic" style="border-color:#c8392b;background:var(--surface);color:var(--muted);">
+        "Escrever código limpo e performático na manipulação do DOM garante que a interface responda instantaneamente às ações do usuário em qualquer dispositivo."
+      </blockquote>
+
+      <ul class="list-disc list-inside space-y-2 pl-2" style="color:var(--text);">
+        <li>Prefira delegação de eventos para listas extensas.</li>
+        <li>Evite alterar propriedades de estilo inline individualmente.</li>
+        <li>Utilize classes CSS utilitárias para gerenciar estados visuais.</li>
+      </ul>
+    </article>
+
+    <!-- SIDEBAR (4 COLUNAS) -->
+    <aside class="lg:col-span-4 space-y-6">
+      
+      <!-- CARD AUTOR -->
+      <div class="rounded-xl p-6" style="background:var(--surface);border:1px solid var(--border);">
+        <h4 class="font-display font-bold text-lg mb-2" style="color:var(--text);">Sobre o Autor</h4>
+        <p class="text-xs leading-relaxed mb-4" style="color:var(--muted);">
+          Desenvolvedor e entusiasta de tecnologia, documentando anotações e códigos para a comunidade.
+        </p>
+        <a href="sobre.html" class="inline-block text-xs font-bold hover:underline" style="color:#c8392b;">Ler mais sobre →</a>
+      </div>
+
+      <!-- CARD CATEGORIAS -->
+      <div class="rounded-xl p-6" style="background:var(--surface);border:1px solid var(--border);">
+        <h4 class="font-display font-bold text-lg mb-3" style="color:var(--text);">Categorias</h4>
+        <ul class="space-y-2 text-xs" style="color:var(--muted);">
+          <li class="flex justify-between items-center"><a href="#" class="hover:underline">HTML & CSS</a> <span>(12)</span></li>
+          <li class="flex justify-between items-center"><a href="#" class="hover:underline">JavaScript</a> <span>(24)</span></li>
+          <li class="flex justify-between items-center"><a href="#" class="hover:underline">Python & Django</a> <span>(8)</span></li>
+          <li class="flex justify-between items-center"><a href="#" class="hover:underline">WordPress / PHP</a> <span>(15)</span></li>
+        </ul>
+      </div>
+
+    </aside>
+
+  </div>
+
+  <!-- ═══════════════════════════ ARTIGOS RELACIONADOS ═══════════════════════════ -->
+  <section class="mt-16 pt-10 border-t" style="border-color:var(--border);">
+    <h3 class="font-display font-bold text-2xl mb-6" style="color:var(--text);">Artigos Relacionados</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <div class="rounded-xl p-5" style="background:var(--surface);border:1px solid var(--border);">
+        <span class="text-xs font-bold uppercase tracking-wider" style="color:#c8392b;">CSS</span>
+        <h4 class="font-display font-bold text-base mt-2 mb-2" style="color:var(--text);">
+          <a href="single.html" class="hover:underline">Grid vs Flexbox: Quando e Como Usar?</a>
+        </h4>
+        <p class="text-xs line-clamp-2" style="color:var(--muted);">Guia rápido de tomada de decisão para layouts responsivos.</p>
+      </div>
+
+      <div class="rounded-xl p-5" style="background:var(--surface);border:1px solid var(--border);">
+        <span class="text-xs font-bold uppercase tracking-wider" style="color:#c8392b;">Python</span>
+        <h4 class="font-display font-bold text-base mt-2 mb-2" style="color:var(--text);">
+          <a href="single.html" class="hover:underline">Estrutura Inicial de um Projeto Django</a>
+        </h4>
+        <p class="text-xs line-clamp-2" style="color:var(--muted);">Anotações sobre views, rotas e configuração do ambiente virtual.</p>
+      </div>
+
+      <div class="rounded-xl p-5" style="background:var(--surface);border:1px solid var(--border);">
+        <span class="text-xs font-bold uppercase tracking-wider" style="color:#c8392b;">WordPress</span>
+        <h4 class="font-display font-bold text-base mt-2 mb-2" style="color:var(--text);">
+          <a href="single.html" class="hover:underline">Criando Loops Personalizados em PHP</a>
+        </h4>
+        <p class="text-xs line-clamp-2" style="color:var(--muted);">Como utilizar WP_Query com segurança e boa performance.</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
 
 <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
 <footer>
@@ -77,7 +200,7 @@
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
       <div>
         <div class="font-display font-black text-xl mb-3" style="color:#c8392b;">AqGoEs</div>
-        <p class="text-xs leading-relaxed" style="color:var(--muted);">Jornalismo independente que conecta você ao mundo que importa.</p>
+        <p class="text-xs leading-relaxed" style="color:var(--muted);">Anotações e estudos sobre desenvolvimento web e programação.</p>
       </div>
       <div>
         <h5 class="font-semibold text-sm mb-3" style="color:var(--text);">Editorias</h5>
@@ -94,7 +217,7 @@
           <li><a href="sobre.html" style="color:inherit;text-decoration:none;">Sobre nós</a></li>
           <li><a href="#" style="color:inherit;text-decoration:none;">Redação</a></li>
           <li><a href="#" style="color:inherit;text-decoration:none;">Anuncie</a></li>
-          <li><a href="#" style="color:inherit;text-decoration:none;">Contato</a></li>
+          <li><a href="contato.html" style="color:inherit;text-decoration:none;">Contato</a></li>
         </ul>
       </div>
       <div>
@@ -116,7 +239,7 @@
     </div>
   </div>
 </footer>
- 
+
 <script src="assets/js/blog_script.js"></script>
 </body>
 </html>
