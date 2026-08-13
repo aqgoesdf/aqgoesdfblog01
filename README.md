@@ -1,3 +1,2 @@
 # Modelo Portfolio home page - AqGoEs
-Repositório foi criado para o modelos dos primeiros exemplos dos posts para o blog aqgoesdf <br>
-Frontend página de portfolio.
+Modelo representa a primeira estrutura html CSS para as páginas do portfólio e do blog.
